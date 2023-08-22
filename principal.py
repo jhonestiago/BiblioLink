@@ -191,6 +191,7 @@ class Principal(Ui_MainWindow, QMainWindow):
     def excluir_livro(self) -> None:
         indice = self.tableWidget_lista_livros.currentRow()
         msg = self.controle_livro.excluir_livro(indice)
+        self.tableWidget_lista_livros.removeRow(indice)
         self.label_lista_msg.setText(msg)
         self.label_lista_msg.setStyleSheet(self.cor_sucesso)
         self.frame_lista_msg.show()
@@ -285,6 +286,7 @@ class Principal(Ui_MainWindow, QMainWindow):
     def excluir_artigo(self) -> None:
         indice = self.tableWidget_lista_artigos.currentRow()
         msg = self.controle_artigo.excluir_artigo(indice)
+        self.tableWidget_lista_artigos.removeRow(indice)
         self.label_lista_msg.setText(msg)
         self.label_lista_msg.setStyleSheet(self.cor_sucesso)
         self.frame_lista_msg.show()
@@ -360,6 +362,7 @@ class Principal(Ui_MainWindow, QMainWindow):
     def excluir_tese(self) -> None:
         indice = self.tableWidget_lista_teses.currentRow()
         msg = self.controle_tese.excluir_tese(indice)
+        self.tableWidget_lista_teses.removeRow(indice)
         self.label_lista_msg.setText(msg)
         self.label_lista_msg.setStyleSheet(self.cor_sucesso)
         self.frame_lista_msg.show()
