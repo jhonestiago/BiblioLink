@@ -230,7 +230,7 @@ class Principal(Ui_MainWindow, QMainWindow):
         livro.colecao = self.lineEdit_livro_colecao.text()
         livro.volume = self.lineEdit_livro_colecao_volume.text()
         livro.versao = self.comboBox_livro_versao.currentText()
-        livro.isbn = self.lineEdit_livro_isbn.text()  
+        livro.isbn = self.lineEdit_livro_isbn.text()
         livro.site = self.lineEdit_livro_site.text()
         livro.acesso = self.lineEdit_livro_acesso.text()
         if len(livro.msg_validacao) != 0:
