@@ -82,20 +82,19 @@ class Principal(Ui_MainWindow, QMainWindow):
         self.pushButton_lista_limpar_referencia.clicked.connect(lambda: self.label_lista_referencia.setText('Referência'))
         
         #Componentes da tela: Lista(Livros)
-        #self.pushButton_lista_livros_exibir
+        self.pushButton_lista_livros_exibir.clicked.connect(self.exibir_referencia_livro)
         self.pushButton_lista_livros_excluir.clicked.connect(self.excluir_livro)
         self.pushButton_lista_livros_novo.clicked.connect(self.acessar_livro)
         self.pushButton_lista_livros_home.clicked.connect(self.acessar_home)
         
-
         #Componentes da tela: Lista(Artigos)
-        #self.pushButton_lista_artigos_exibir
+        self.pushButton_lista_artigos_exibir.clicked.connect(self.exibir_referencia_artigo)
         self.pushButton_lista_artigos_excluir.clicked.connect(self.excluir_artigo)
         self.pushButton_lista_artigos_novo.clicked.connect(self.acessar_artigo)
         self.pushButton_lista_artigos_home.clicked.connect(self.acessar_home)
 
         #Componentes da tela: Lista(Teses)
-        #self.pushButton_lista_teses_exibir
+        self.pushButton_lista_teses_exibir.clicked.connect(self.exibir_referencia_tese)
         self.pushButton_lista_teses_excluir.clicked.connect(self.excluir_tese)
         self.pushButton_lista_teses_novo.clicked.connect(self.acessar_tese)
         self.pushButton_lista_teses_home.clicked.connect(self.acessar_home)
@@ -315,7 +314,7 @@ class Principal(Ui_MainWindow, QMainWindow):
         tese.versao = self.comboBox_tese_versao.currentText()
         tese.site = self.lineEdit_tese_site.text()
         tese.acesso = self.lineEdit_tese_acesso.text()
-        if len(tese.msg_validacao != ''):
+        if len(tese.msg_validacao) != 0:
             self.label_tese_msg.setText(tese.msg_validacao)
             self.label_tese_msg.setStyleSheet(self.cor_erro)
             self.frame_tese_msg.show()
@@ -349,8 +348,23 @@ class Principal(Ui_MainWindow, QMainWindow):
         self.label_lista_msg.setStyleSheet(self.cor_sucesso)
         self.frame_lista_msg.show()
     
-    def exibir_referencia_livro(self):
-        pass
+    def exibir_referencia_livro(self) -> None:
+        linha = self.tableWidget_lista_livros.currentRow()
+        coluna = 19
+        referencia = self.tableWidget_lista_livros.item(linha, coluna).text()
+        self.label_lista_referencia.setText(referencia)
+    
+    def exibir_referencia_artigo(self) -> None:
+        linha = self.tableWidget_lista_artigos.currentRow()
+        coluna = 22
+        referencia = self.tableWidget_lista_artigos.item(linha, coluna).text()
+        self.label_lista_referencia.setText(referencia)
+
+    def exibir_referencia_tese(self) -> None:
+        linha = self.tableWidget_lista_teses.currentRow()
+        coluna = 16
+        referencia = self.tableWidget_lista_teses.item(linha, coluna).text()
+        self.label_lista_referencia.setText(referencia)
 
     def acessar_livro(self) -> None:
         self.stackedWidget_sistema.setCurrentWidget(self.page_sistema_livro)
