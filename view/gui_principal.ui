@@ -1,0 +1,3140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QFrame" name="frame_principal">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>800</width>
+      <height>600</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#frame_principal {
+	background-color: rgb(28, 25, 72);
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QStackedWidget" name="stackedWidget_sistema">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>800</width>
+       <height>600</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QFrame {
+	background-color: rgb(28, 25, 72);
+}
+QLabel {
+	color: white;
+	font-family: 'Candara', Arial, sans-serif;
+	font-size: 12px;
+}</string>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="page_sistema_login">
+      <widget class="QFrame" name="frame_login_principal">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>781</width>
+         <height>581</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QFrame" name="frame_login_secundario">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>220</y>
+          <width>441</width>
+          <height>171</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+	font-family: 'Candara', Arial, sans-serif;
+	font-size: 14px;
+	background-color: rgb(51, 50, 128);
+	border-radius: 8px;
+	height: 23px;
+	color: rgb(255, 255, 255);
+}
+QLineEdit {
+	font-family: 'Candara', Arial, sans-serif;
+	font-size: 14px;
+	background-color: rgb(27, 122, 174);
+	border-radius: 8px;
+	height: 23px;
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_7">
+         <item row="2" column="0" colspan="3">
+          <widget class="QFrame" name="frame_login_msg">
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+	border-radius: 2px;
+}</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <widget class="QLabel" name="label_login_msg">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>341</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Mensagem</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="pushButton_login_fechar_msg">
+            <property name="geometry">
+             <rect>
+              <x>370</x>
+              <y>10</y>
+              <width>40</width>
+              <height>40</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	background-color: rgb(255, 0, 0);
+	border-radius: 20px;
+	font-size: 14px;
+	color: white;
+}</string>
+            </property>
+            <property name="text">
+             <string>X</string>
+            </property>
+           </widget>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="0" column="2">
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="lineEdit_login_usuario">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>Insira o seu user</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="lineEdit_login_senha">
+           <property name="echoMode">
+            <enum>QLineEdit::Password</enum>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>Insira a sua senha</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QPushButton" name="pushButton_login_entrar">
+           <property name="text">
+            <string>Entrar</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QLabel" name="label_login_icone">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>110</y>
+          <width>100</width>
+          <height>100</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>icone</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="page_sistema_home">
+      <widget class="QFrame" name="frame_home_principal">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>781</width>
+         <height>581</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	font-family: 'Candara', Arial, sans-serif;
+	font-size: 14px;
+	background-color: rgb(51, 50, 128);
+	border-radius: 8px;
+	color: rgb(255, 255, 255);
+}</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QLabel" name="label_home_logo">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>17</y>
+          <width>100</width>
+          <height>100</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>logo</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_home_tese">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>449</y>
+          <width>190</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Tese</string>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>100</width>
+          <height>100</height>
+         </size>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_home_lista">
+        <property name="geometry">
+         <rect>
+          <x>400</x>
+          <y>449</y>
+          <width>190</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Lista</string>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>100</width>
+          <height>100</height>
+         </size>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_home_nome">
+        <property name="geometry">
+         <rect>
+          <x>213</x>
+          <y>120</y>
+          <width>351</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-family: 'Candara', Arial, sans-serif;</string>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:20pt; font-weight:600;&quot;&gt;BiblioLink&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_home_sair">
+        <property name="geometry">
+         <rect>
+          <x>700</x>
+          <y>30</y>
+          <width>50</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#pushButton_home_sair {
+	background-color: none;
+	border-radius: 1px;
+	width: 50px;
+	height: 50px;
+}</string>
+        </property>
+        <property name="text">
+         <string>Sair</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_home_artigo">
+        <property name="geometry">
+         <rect>
+          <x>400</x>
+          <y>299</y>
+          <width>190</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Artigo</string>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>100</width>
+          <height>100</height>
+         </size>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_home_livro">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>299</y>
+          <width>190</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Livro</string>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>100</width>
+          <height>100</height>
+         </size>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_home_icon_livro">
+        <property name="geometry">
+         <rect>
+          <x>235</x>
+          <y>195</y>
+          <width>100</width>
+          <height>100</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 8px;</string>
+        </property>
+        <property name="text">
+         <string>icon_livro</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_home_icon_artigo">
+        <property name="geometry">
+         <rect>
+          <x>445</x>
+          <y>195</y>
+          <width>100</width>
+          <height>100</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 8px;</string>
+        </property>
+        <property name="text">
+         <string>icon_artigo</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_home_icon_tese">
+        <property name="geometry">
+         <rect>
+          <x>235</x>
+          <y>345</y>
+          <width>100</width>
+          <height>100</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 8px;</string>
+        </property>
+        <property name="text">
+         <string>icon_tese</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_home_icon_lista">
+        <property name="geometry">
+         <rect>
+          <x>445</x>
+          <y>345</y>
+          <width>100</width>
+          <height>100</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 8px;</string>
+        </property>
+        <property name="text">
+         <string>icon_lista</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="page_sistema_livro">
+      <widget class="QFrame" name="frame_livro_principal">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>781</width>
+         <height>581</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Plain</enum>
+       </property>
+       <widget class="QLabel" name="label_icon_livro">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>0</y>
+          <width>100</width>
+          <height>100</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Icone</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QFrame" name="frame_livro_msg">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>0</y>
+          <width>651</width>
+          <height>100</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+	border-radius: 2px;
+}
+QPushButton{
+	background-color: rgb(255, 0, 0);
+	border-radius: 20px;
+	font-size: 14px;
+	color: white;
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="label_livro_msg">
+         <property name="geometry">
+          <rect>
+           <x>15</x>
+           <y>35</y>
+           <width>570</width>
+           <height>30</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Mensagem</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_livro_fechar_msg">
+         <property name="geometry">
+          <rect>
+           <x>600</x>
+           <y>30</y>
+           <width>40</width>
+           <height>40</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>X</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QFrame" name="frame_livro_cadastro">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>100</y>
+          <width>651</width>
+          <height>381</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+	font-family: 'Candara', Arial, sans-serif;
+	font-size: 14px;
+}
+QLineEdit {
+	font-family: 'Candara', Arial, sans-serif;
+	font-size: 14px;
+	background-color: rgb(27, 122, 174);
+	border-radius: 8px;
+	height: 23px;
+}
+QPushButton {
+	font-family: 'Candara', Arial, sans-serif;
+	font-size: 14px;
+	background-color: rgb(51, 50, 128);
+	border-radius: 8px;
+	height: 23px;
+	color: rgb(255, 255, 255);
+}
+QRadioButton {
+	font-family: 'Candara', Arial, sans-serif;
+	font-size: 14px;
+	color: rgb(255, 255, 255);
+	height: 23px;
+}
+QComboBox{
+	font-family: 'Candara', Arial, sans-serif;
+	font-size: 14px;
+	background-color: rgb(27, 122, 174);
+	border-radius: 2px;
+	height: 23px;
+}
+QComboBox QAbstractItemView {
+	background-color: rgb(27, 122, 174);
+	color: white
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_livro_p_autor">
+           <property name="text">
+            <string>Primeiro Autor:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3" colspan="4">
+          <widget class="QLineEdit" name="lineEdit_livro_nome_p_autor">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>Nome</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_livro_quant_autores">
+           <property name="text">
+            <string>Quant. Autores:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QRadioButton" name="radioButton_livro_quant_autores_1">
+           <property name="text">
+            <string>Entre 1 a 3 Autores</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_livro_titulo">
+           <property name="text">
+            <string>Título do livro:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1" colspan="6">
+          <widget class="QLineEdit" name="lineEdit_livro_titulo">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="label_livro_subtitulo">
+           <property name="text">
+            <string>Subtítulo:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1" colspan="2">
+          <widget class="QLineEdit" name="lineEdit_livro_sobrenome_p_autor">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>SOBRENOME</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="2">
+          <widget class="QLabel" name="label_livro_local">
+           <property name="text">
+            <string>Local:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="4">
+          <widget class="QLabel" name="label_livro_versao">
+           <property name="text">
+            <string>Versão:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="3">
+          <widget class="QLineEdit" name="lineEdit_livro_local">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="2">
+          <widget class="QLabel" name="label_livro_total_paginas">
+           <property name="text">
+            <string>Total de Páginas:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <widget class="QRadioButton" name="radioButton_livro_quant_autores_2">
+           <property name="text">
+            <string>&gt; 3 Autores</string>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="3">
+          <widget class="QLineEdit" name="lineEdit_livro_total_paginas">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="0">
+          <widget class="QLabel" name="label_livro_ano">
+           <property name="text">
+            <string>Ano:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="1">
+          <widget class="QLineEdit" name="lineEdit_livro_ano">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="0">
+          <widget class="QLabel" name="label_livro_edicao">
+           <property name="text">
+            <string>Edição:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="4">
+          <widget class="QLabel" name="label_livro_editora">
+           <property name="text">
+            <string>Editora:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="6">
+          <widget class="QLineEdit" name="lineEdit_livro_editora">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1" colspan="6">
+          <widget class="QLineEdit" name="lineEdit_livro_subtitulo">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="1">
+          <widget class="QLineEdit" name="lineEdit_livro_edicao">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>Número</string>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="6">
+          <widget class="QComboBox" name="comboBox_livro_versao">
+           <item>
+            <property name="text">
+             <string/>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Físico</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>E-book</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="9" column="4">
+          <widget class="QLabel" name="label_livro_isbn">
+           <property name="text">
+            <string>ISBN:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="6">
+          <widget class="QLineEdit" name="lineEdit_livro_isbn">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="1">
+          <widget class="QLineEdit" name="lineEdit_livro_colecao">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="2">
+          <widget class="QLabel" name="label_livro_colecao_volume">
+           <property name="text">
+            <string>Volume:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="0">
+          <widget class="QLabel" name="label_livro_colecao">
+           <property name="text">
+            <string>Coleção:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="3">
+          <widget class="QLineEdit" name="lineEdit_livro_colecao_volume">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>Número</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_livro_s_autor">
+           <property name="text">
+            <string>Segundo Autor:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1" colspan="2">
+          <widget class="QLineEdit" name="lineEdit_livro_sobrenome_s_autor">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>SOBRENOME</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3" colspan="4">
+          <widget class="QLineEdit" name="lineEdit_livro_nome_s_autor">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>Nome</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="3" colspan="4">
+          <widget class="QLineEdit" name="lineEdit_livro_nome_t_autor">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>Nome</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_livro_t_autor">
+           <property name="text">
+            <string>Terceiro Autor:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1" colspan="2">
+          <widget class="QLineEdit" name="lineEdit_livro_sobrenome_t_autor">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>SOBRENOME</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="label_livro_titulo_original">
+           <property name="text">
+            <string>Título Original:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1" colspan="6">
+          <widget class="QLineEdit" name="lineEdit_livro_titulo_original">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1" colspan="6">
+          <widget class="QLineEdit" name="lineEdit_livro_tradutores">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="0">
+          <widget class="QLabel" name="label_livro_tradutores">
+           <property name="text">
+            <string>Tradutores:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="11" column="0">
+          <widget class="QLabel" name="label_livro_site">
+           <property name="text">
+            <string>Site:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="11" column="1" colspan="3">
+          <widget class="QLineEdit" name="lineEdit_livro_site">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="11" column="4">
+          <widget class="QLabel" name="label_livro_data_acesso">
+           <property name="text">
+            <string>Acesso:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="12" column="6">
+          <widget class="QPushButton" name="pushButton_livro_salvar">
+           <property name="text">
+            <string>Salvar</string>
+           </property>
+          </widget>
+         </item>
+         <item row="11" column="6">
+          <widget class="QLineEdit" name="lineEdit_livro_acesso"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QFrame" name="frame_livro_referencia">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>480</y>
+          <width>761</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+	background-color: rgb(255, 255, 255);
+	border: 2px solid rgb(27, 122, 174);
+	border-radius: 2px;
+	color: rgb(0, 0, 0);
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QPushButton" name="pushButton_livro_limpar_referencia">
+         <property name="geometry">
+          <rect>
+           <x>710</x>
+           <y>25</y>
+           <width>40</width>
+           <height>40</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgb(51, 255, 51);
+	border-radius: 20px;
+	font-size: 14px;
+	color: white;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_livro_referencia">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>5</y>
+           <width>690</width>
+           <height>80</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Referência</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QFrame" name="frame_livro_botoes">
+        <property name="geometry">
+         <rect>
+          <x>659</x>
+          <y>100</y>
+          <width>111</width>
+          <height>381</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+	font-family: 'Candara', Arial, sans-serif;
+	font-size: 14px;
+	background-color: rgb(51, 50, 128);
+	border-radius: 8px;
+	height: 23px;
+	color: rgb(255, 255, 255);
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_2">
+         <item row="3" column="0">
+          <widget class="QPushButton" name="pushButton_livro_lista">
+           <property name="text">
+            <string>Lista</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="2" column="0">
+          <widget class="QPushButton" name="pushButton_livro_home">
+           <property name="text">
+            <string>Home</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="page_sistema_artigo">
+      <widget class="QFrame" name="frame_artigo_principal">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>781</width>
+         <height>581</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Plain</enum>
+       </property>
+       <widget class="QLabel" name="label_icon_artigo">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>0</y>
+          <width>100</width>
+          <height>100</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Icone</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QFrame" name="frame_artigo_msg">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>0</y>
+          <width>651</width>
+          <height>100</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+	border-radius: 2px;
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="label_artigo_msg">
+         <property name="geometry">
+          <rect>
+           <x>15</x>
+           <y>35</y>
+           <width>570</width>
+           <height>30</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Mensagem</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_artigo_fechar_msg">
+         <property name="geometry">
+          <rect>
+           <x>600</x>
+           <y>30</y>
+           <width>40</width>
+           <height>40</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgb(255, 0, 0);
+	border-radius: 20px;
+	font-size: 14px;
+	color: white;
+}</string>
+         </property>
+         <property name="text">
+          <string>X</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QFrame" name="frame_artigo_cadastro">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>100</y>
+          <width>651</width>
+          <height>381</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+	font-family: 'Candara', Arial, sans-serif;
+	font-size: 14px;
+}
+QLineEdit {
+	font-family: 'Candara', Arial, sans-serif;
+	font-size: 14px;
+	background-color: rgb(27, 122, 174);
+	border-radius: 8px;
+	height: 23px;
+}
+QPushButton {
+	font-family: 'Candara', Arial, sans-serif;
+	font-size: 14px;
+	background-color: rgb(51, 50, 128);
+	border-radius: 8px;
+	height: 23px;
+	color: rgb(255, 255, 255);
+}
+QRadioButton {
+	font-family: 'Candara', Arial, sans-serif;
+	font-size: 14px;
+	color: rgb(255, 255, 255);
+	height: 23px;
+}
+QComboBox{
+	font-family: 'Candara', Arial, sans-serif;
+	font-size: 14px;
+	background-color: rgb(27, 122, 174);
+	border-radius: 2px;
+	height: 23px;
+}
+QComboBox QAbstractItemView {
+	background-color: rgb(27, 122, 174);
+	color: white
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_3">
+         <item row="11" column="0">
+          <widget class="QLabel" name="label_artigo_doi">
+           <property name="text">
+            <string>DOI:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="4">
+          <widget class="QLineEdit" name="lineEdit_artigo_edicao">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="5">
+          <widget class="QLabel" name="label_artigo_ano">
+           <property name="text">
+            <string>Ano:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="3">
+          <widget class="QLabel" name="label_artigo_periodo">
+           <property name="text">
+            <string>Período:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="6">
+          <widget class="QLineEdit" name="lineEdit_artigo_volume">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="5">
+          <widget class="QLabel" name="label_artigo_tomo">
+           <property name="text">
+            <string>Tomo:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="4">
+          <widget class="QLineEdit" name="lineEdit_artigo_periodo">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="label_artigo_periodico">
+           <property name="text">
+            <string>Periódico:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="5">
+          <widget class="QLabel" name="label_artigo_volume">
+           <property name="text">
+            <string>Volume:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="0">
+          <widget class="QLabel" name="label_artigo_issn">
+           <property name="text">
+            <string>ISSN:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="2">
+          <widget class="QLineEdit" name="lineEdit_artigo_issn">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="6">
+          <widget class="QLineEdit" name="lineEdit_artigo_ano">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="3">
+          <widget class="QLabel" name="label_artigo_versao">
+           <property name="text">
+            <string>Versão</string>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="4">
+          <widget class="QComboBox" name="comboBox_artigo_versao">
+           <item>
+            <property name="text">
+             <string/>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Físico</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Online</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="9" column="2">
+          <widget class="QLineEdit" name="lineEdit_artigo_paginas">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2" colspan="2">
+          <widget class="QLineEdit" name="lineEdit_artigo_sobrenome_s_autor">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>SOBRENOME</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="4" colspan="3">
+          <widget class="QLineEdit" name="lineEdit_artigo_nome_s_autor">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>Nome</string>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="0">
+          <widget class="QLabel" name="label_artigo_paginas">
+           <property name="text">
+            <string>Paginas:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_artigo_s_autor">
+           <property name="text">
+            <string>Segundo Autor:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="12" column="5">
+          <widget class="QLabel" name="label_artigo_data_acesso">
+           <property name="text">
+            <string>Acesso</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2" colspan="2">
+          <widget class="QLineEdit" name="lineEdit_artigo_sobrenome_t_autor">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>SOBRENOME</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="4" colspan="3">
+          <widget class="QLineEdit" name="lineEdit_artigo_nome_t_autor">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>Nome</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_artigo_t_autor">
+           <property name="text">
+            <string>Terceiro Autor:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="12" column="0">
+          <widget class="QLabel" name="label_artigo_site">
+           <property name="text">
+            <string>Site:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="12" column="2" colspan="3">
+          <widget class="QLineEdit" name="lineEdit_artigo_site">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="4">
+          <widget class="QLineEdit" name="lineEdit_artigo_num_ano">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="3">
+          <widget class="QLabel" name="label_artigo_num_ano">
+           <property name="text">
+            <string>N.º Ano:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="0">
+          <widget class="QLabel" name="label_artigo_numero">
+           <property name="text">
+            <string>N.º:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <widget class="QRadioButton" name="radioButton_artigo_quant_autores_1">
+           <property name="text">
+            <string>Entre 1 a 3 Autores</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_artigo_p_autor">
+           <property name="text">
+            <string>Primeiro Autor:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="4" colspan="3">
+          <widget class="QLineEdit" name="lineEdit_artigo_nome_p_autor">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>Nome</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_artigo_quant_autores">
+           <property name="text">
+            <string>Quant. Autores:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_artigo_titulo">
+           <property name="text">
+            <string>Título do artigo:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="label_artigo_subtitulo">
+           <property name="text">
+            <string>Subtítulo:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="3">
+          <widget class="QRadioButton" name="radioButton_artigo_quant_autores_2">
+           <property name="text">
+            <string>&gt; 3 Autores</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="2" colspan="5">
+          <widget class="QLineEdit" name="lineEdit_artigo_titulo">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2" colspan="2">
+          <widget class="QLineEdit" name="lineEdit_artigo_sobrenome_p_autor">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>SOBRENOME</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="2">
+          <widget class="QLineEdit" name="lineEdit_artigo_local">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="6">
+          <widget class="QLineEdit" name="lineEdit_artigo_tomo">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="3">
+          <widget class="QLabel" name="label_artigo_edicao">
+           <property name="text">
+            <string>Edição:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="0">
+          <widget class="QLabel" name="label_artigo_local">
+           <property name="text">
+            <string>Local:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="11" column="2" colspan="5">
+          <widget class="QLineEdit" name="lineEdit_artigo_doi">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="2">
+          <widget class="QLineEdit" name="lineEdit_artigo_numero">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="13" column="6">
+          <widget class="QPushButton" name="pushButton_artigo_salvar">
+           <property name="text">
+            <string>Salvar</string>
+           </property>
+          </widget>
+         </item>
+         <item row="12" column="6">
+          <widget class="QLineEdit" name="lineEdit_artigo_acesso"/>
+         </item>
+         <item row="5" column="2" colspan="5">
+          <widget class="QLineEdit" name="lineEdit_artigo_subtitulo">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="2" colspan="2">
+          <widget class="QLineEdit" name="lineEdit_artigo_periodico_titulo">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>Título do Periódico</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="4" colspan="3">
+          <widget class="QLineEdit" name="lineEdit_artigo_periodico_subtitulo">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>Subtítulo do Periódico</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QFrame" name="frame_artigo_referencia">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>480</y>
+          <width>761</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+	background-color: rgb(255, 255, 255);
+	border: 2px solid rgb(27, 122, 174);
+	border-radius: 2px;
+	color: rgb(0, 0, 0);
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QPushButton" name="pushButton_artigo_limpar_referencia">
+         <property name="geometry">
+          <rect>
+           <x>710</x>
+           <y>25</y>
+           <width>40</width>
+           <height>40</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgb(51, 255, 51);
+	border-radius: 20px;
+	font-size: 14px;
+	color: white;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_artigo_referencia">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>5</y>
+           <width>690</width>
+           <height>80</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Referência</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QFrame" name="frame_artigo_botoes">
+        <property name="geometry">
+         <rect>
+          <x>659</x>
+          <y>100</y>
+          <width>111</width>
+          <height>381</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+	font-family: 'Candara', Arial, sans-serif;
+	font-size: 14px;
+	background-color: rgb(51, 50, 128);
+	border-radius: 8px;
+	height: 23px;
+	color: rgb(255, 255, 255);
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_4">
+         <item row="6" column="0">
+          <spacer name="verticalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="4" column="0">
+          <widget class="QPushButton" name="pushButton_artigo_lista">
+           <property name="text">
+            <string>Lista</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QPushButton" name="pushButton_artigo_home">
+           <property name="text">
+            <string>Home</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="page_sistema_tese">
+      <widget class="QFrame" name="frame_tese_principal">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>781</width>
+         <height>581</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Plain</enum>
+       </property>
+       <widget class="QLabel" name="label_icon_tese">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>0</y>
+          <width>100</width>
+          <height>100</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Icone</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QFrame" name="frame_tese_msg">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>0</y>
+          <width>651</width>
+          <height>100</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+	border-radius: 2px;
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="label_tese_msg">
+         <property name="geometry">
+          <rect>
+           <x>15</x>
+           <y>35</y>
+           <width>570</width>
+           <height>30</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Mensagem</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_tese_fechar_msg">
+         <property name="geometry">
+          <rect>
+           <x>600</x>
+           <y>30</y>
+           <width>40</width>
+           <height>40</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgb(255, 0, 0);
+	border-radius: 20px;
+	font-size: 14px;
+	color: white;
+}</string>
+         </property>
+         <property name="text">
+          <string>X</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QFrame" name="frame_tese_cadastro">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>100</y>
+          <width>651</width>
+          <height>381</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+	font-family: 'Candara', Arial, sans-serif;
+	font-size: 14px;
+}
+QLineEdit {
+	font-family: 'Candara', Arial, sans-serif;
+	font-size: 14px;
+	background-color: rgb(27, 122, 174);
+	border-radius: 8px;
+	height: 23px;
+}
+QPushButton {
+	font-family: 'Candara', Arial, sans-serif;
+	font-size: 14px;
+	background-color: rgb(51, 50, 128);
+	border-radius: 8px;
+	height: 23px;
+	color: rgb(255, 255, 255);
+}
+QComboBox{
+	font-family: 'Candara', Arial, sans-serif;
+	font-size: 14px;
+	background-color: rgb(27, 122, 174);
+	border-radius: 2px;
+	height: 23px;
+}
+QComboBox QAbstractItemView {
+	background-color: rgb(27, 122, 174);
+	color: white
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_5">
+         <item row="5" column="0">
+          <widget class="QLabel" name="label_tese_ano_deposito">
+           <property name="text">
+            <string>Deposito (Ano):</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_tese_titulo">
+           <property name="text">
+            <string>Título:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_tese_p_autor">
+           <property name="text">
+            <string>Primeiro Autor:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3" colspan="3">
+          <widget class="QLineEdit" name="lineEdit_tese_nome_p_autor">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>Nome</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_tese_subtitulo">
+           <property name="text">
+            <string>Subtítulo:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1" colspan="5">
+          <widget class="QLineEdit" name="lineEdit_tese_titulo">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1" colspan="2">
+          <widget class="QLineEdit" name="lineEdit_tese_sobrenome_p_autor">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>SOBRENOME</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1" colspan="5">
+          <widget class="QLineEdit" name="lineEdit_tese_subtitulo">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="0">
+          <widget class="QLabel" name="label_tese_instituto">
+           <property name="text">
+            <string>Instituto:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_tese_s_autor">
+           <property name="text">
+            <string>Segundo Autor:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1" colspan="2">
+          <widget class="QLineEdit" name="lineEdit_tese_sobrenome_s_autor">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>SOBRENOME</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_tese_orientador">
+           <property name="text">
+            <string>Orientador:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3" colspan="3">
+          <widget class="QLineEdit" name="lineEdit_tese_nome_s_autor">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>Nome</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1" colspan="5">
+          <widget class="QLineEdit" name="lineEdit_tese_grau">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="label_tese_grau">
+           <property name="text">
+            <string>Grau:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="1" colspan="3">
+          <widget class="QLineEdit" name="lineEdit_tese_site">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="0">
+          <widget class="QLabel" name="label_tese_site">
+           <property name="text">
+            <string>Site:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QLineEdit" name="lineEdit_tese_ano_deposito">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="4">
+          <widget class="QLabel" name="label_tese_data_acesso">
+           <property name="text">
+            <string>Acesso</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1" colspan="5">
+          <widget class="QLineEdit" name="lineEdit_tese_orientador">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>Nome completo</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="5">
+          <widget class="QComboBox" name="comboBox_tese_tipo_trabalho">
+           <item>
+            <property name="text">
+             <string/>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Tese</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Dissertação</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Trabalho de Conclusão de Curso</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="5" column="4">
+          <widget class="QLabel" name="label_tese_tipo_trabalho">
+           <property name="text">
+            <string>Tipo:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="2">
+          <widget class="QLabel" name="label_tese_total_folhas">
+           <property name="text">
+            <string>Folhas:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="3">
+          <widget class="QLineEdit" name="lineEdit_tese_total_folhas">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="3">
+          <widget class="QLabel" name="label_tese_universidade">
+           <property name="text">
+            <string>Universidade:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1" colspan="2">
+          <widget class="QLineEdit" name="lineEdit_tese_instituto">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>Número</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="4" colspan="2">
+          <widget class="QLineEdit" name="lineEdit_tese_universidade">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="0">
+          <widget class="QLabel" name="label_tese_local_defesa">
+           <property name="text">
+            <string>Local (Defesa):</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="1">
+          <widget class="QLineEdit" name="lineEdit_tese_local_defesa">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="2">
+          <widget class="QLabel" name="label_tese_ano_defesa">
+           <property name="text">
+            <string>Ano:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="3">
+          <widget class="QLineEdit" name="lineEdit_tese_ano_defesa">
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="placeholderText">
+            <string>...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="4">
+          <widget class="QLabel" name="label_tese_versao">
+           <property name="text">
+            <string>Versão:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="5">
+          <widget class="QComboBox" name="comboBox_tese_versao">
+           <item>
+            <property name="text">
+             <string/>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Físico</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Digital</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="11" column="5">
+          <widget class="QPushButton" name="pushButton_tese_salvar">
+           <property name="text">
+            <string>Salvar</string>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="5">
+          <widget class="QLineEdit" name="lineEdit_tese_acesso"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QFrame" name="frame_tese_referencia">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>480</y>
+          <width>761</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+	background-color: rgb(255, 255, 255);
+	border: 2px solid rgb(27, 122, 174);
+	border-radius: 2px;
+	color: rgb(0, 0, 0);
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QPushButton" name="pushButton_tese_limpar_referencia">
+         <property name="geometry">
+          <rect>
+           <x>710</x>
+           <y>25</y>
+           <width>40</width>
+           <height>40</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgb(51, 255, 51);
+	border-radius: 20px;
+	font-size: 14px;
+	color: white;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_tese_referencia">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>5</y>
+           <width>690</width>
+           <height>80</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Referência</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QFrame" name="frame_tese_botoes">
+        <property name="geometry">
+         <rect>
+          <x>659</x>
+          <y>100</y>
+          <width>111</width>
+          <height>381</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+	font-family: 'Candara', Arial, sans-serif;
+	font-size: 14px;
+	background-color: rgb(51, 50, 128);
+	border-radius: 8px;
+	height: 23px;
+	color: rgb(255, 255, 255);
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_6">
+         <item row="5" column="0">
+          <spacer name="verticalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="3" column="0">
+          <widget class="QPushButton" name="pushButton_tese_lista">
+           <property name="text">
+            <string>Lista</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QPushButton" name="pushButton_tese_home">
+           <property name="text">
+            <string>Home</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="page_sistema_lista">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <widget class="QFrame" name="frame_lista_principal">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>781</width>
+         <height>581</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Plain</enum>
+       </property>
+       <widget class="QLabel" name="label_icon_lista">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>0</y>
+          <width>100</width>
+          <height>100</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Icone</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QFrame" name="frame_lista_msg">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>0</y>
+          <width>651</width>
+          <height>100</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+	border-radius: 2px;
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QLabel" name="label_lista_msg">
+         <property name="geometry">
+          <rect>
+           <x>15</x>
+           <y>35</y>
+           <width>570</width>
+           <height>30</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Mensagem</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_lista_fechar_msg">
+         <property name="geometry">
+          <rect>
+           <x>600</x>
+           <y>30</y>
+           <width>40</width>
+           <height>40</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgb(255, 0, 0);
+	border-radius: 20px;
+	font-size: 14px;
+	color: white;
+}</string>
+         </property>
+         <property name="text">
+          <string>X</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QFrame" name="frame_lista_fundo">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>100</y>
+          <width>761</width>
+          <height>381</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QTabWidget" name="tabWidget_lista_dados">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>761</width>
+           <height>381</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#tabWidget_lista_dados {
+	background-color: rgb(255, 255, 255);
+}
+QTabBar::tab:!selected {
+	font-family: 'Candara', Arial, sans-serif;
+	font-size: 11px;
+	background-color: rgb(51, 50, 128);
+	color: rgb(255, 255, 255);
+}
+QTabBar::tab:selected {
+	font-family: 'Candara', Arial, sans-serif;
+	font-size: 11px;
+	background-color: rgb(86, 89, 171);
+	color: rgb(255, 255, 255);
+}
+QTabBar::tab-line {
+	font-family: 'Candara', Arial, sans-serif;
+	font-size: 11px;
+	background-color: rgb(28, 25, 72);
+}
+	
+</string>
+         </property>
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="tab_lista_livros">
+          <attribute name="title">
+           <string>Livros</string>
+          </attribute>
+          <widget class="QTableWidget" name="tableWidget_lista_livros">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>641</width>
+             <height>355</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <column>
+            <property name="text">
+             <string>1.º Autor</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>2.º Autor</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>3.º Autor</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>+ Autores</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Título</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Subtítulo</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Edição</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Tradutores</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Local</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Editora</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Ano</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Paginas</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Título Original</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Coleção</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Volume</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Versão</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>ISBN</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Site</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Data de Acesso</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Referência</string>
+            </property>
+           </column>
+          </widget>
+          <widget class="QFrame" name="frame_lista_livros_botoes">
+           <property name="geometry">
+            <rect>
+             <x>640</x>
+             <y>0</y>
+             <width>121</width>
+             <height>354</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+	font-family: 'Candara', Arial, sans-serif;
+	font-size: 14px;
+	background-color: rgb(51, 50, 128);
+	border-radius: 8px;
+	height: 23px;
+	color: rgb(255, 255, 255);
+}</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_8">
+            <item row="4" column="0">
+             <widget class="QPushButton" name="pushButton_lista_livros_novo">
+              <property name="text">
+               <string>Novo</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QPushButton" name="pushButton_lista_livros_exibir">
+              <property name="text">
+               <string>Exibir</string>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="0">
+             <widget class="QPushButton" name="pushButton_lista_livros_home">
+              <property name="text">
+               <string>Home</string>
+              </property>
+             </widget>
+            </item>
+            <item row="8" column="0">
+             <spacer name="verticalSpacer_4">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="3" column="0">
+             <widget class="QPushButton" name="pushButton_lista_livros_excluir">
+              <property name="text">
+               <string>Excluir</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="tab_lista_artigos">
+          <attribute name="title">
+           <string>Artigos</string>
+          </attribute>
+          <widget class="QTableWidget" name="tableWidget_lista_artigos">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>641</width>
+             <height>355</height>
+            </rect>
+           </property>
+           <column>
+            <property name="text">
+             <string>1.º Autor</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>2.º Autor</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>3.º Autor</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>+ Autores</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Título</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Subtítulo</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Periódico</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Sub. Periódico</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Local</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>N.º Ano</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Volume</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>N.º</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Edição</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Tomo</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Páginas</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Periodo</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Ano</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>ISSN</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Versão</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>DOI</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Site</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Acesso</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Referência</string>
+            </property>
+           </column>
+          </widget>
+          <widget class="QFrame" name="frame_lista_artigos_botoes">
+           <property name="geometry">
+            <rect>
+             <x>640</x>
+             <y>0</y>
+             <width>121</width>
+             <height>354</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+	font-family: 'Candara', Arial, sans-serif;
+	font-size: 14px;
+	background-color: rgb(51, 50, 128);
+	border-radius: 8px;
+	height: 23px;
+	color: rgb(255, 255, 255);
+}</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_9">
+            <item row="2" column="0">
+             <widget class="QPushButton" name="pushButton_lista_artigos_exibir">
+              <property name="text">
+               <string>Exibir</string>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="0">
+             <widget class="QPushButton" name="pushButton_lista_artigos_home">
+              <property name="text">
+               <string>Home</string>
+              </property>
+             </widget>
+            </item>
+            <item row="8" column="0">
+             <spacer name="verticalSpacer_5">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="4" column="0">
+             <widget class="QPushButton" name="pushButton_lista_artigos_novo">
+              <property name="text">
+               <string>Novo</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QPushButton" name="pushButton_lista_artigos_excluir">
+              <property name="text">
+               <string>Excluir</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="tab_lista_teses">
+          <attribute name="title">
+           <string>Trabalhos Acadêmicos</string>
+          </attribute>
+          <widget class="QTableWidget" name="tableWidget_lista_teses">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>641</width>
+             <height>355</height>
+            </rect>
+           </property>
+           <column>
+            <property name="text">
+             <string>1.º Autor</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>2.º Autor</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Título</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Subtítulo</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Orientador</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Deposito</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Folhas</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Tipo do Trabalho</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Grau</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Instituto</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Universidade</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Local</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Ano</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Versão</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Site</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Acesso</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+             <string>Referência</string>
+            </property>
+           </column>
+          </widget>
+          <widget class="QFrame" name="frame_lista_teses_botoes">
+           <property name="geometry">
+            <rect>
+             <x>640</x>
+             <y>0</y>
+             <width>121</width>
+             <height>354</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+	font-family: 'Candara', Arial, sans-serif;
+	font-size: 14px;
+	background-color: rgb(51, 50, 128);
+	border-radius: 8px;
+	height: 23px;
+	color: rgb(255, 255, 255);
+}</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Raised</enum>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_10">
+            <item row="6" column="0">
+             <widget class="QPushButton" name="pushButton_lista_teses_novo">
+              <property name="text">
+               <string>Novo</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <widget class="QPushButton" name="pushButton_lista_teses_excluir">
+              <property name="text">
+               <string>Excluir</string>
+              </property>
+             </widget>
+            </item>
+            <item row="8" column="0">
+             <spacer name="verticalSpacer_6">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="7" column="0">
+             <widget class="QPushButton" name="pushButton_lista_teses_home">
+              <property name="text">
+               <string>Home</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QPushButton" name="pushButton_lista_teses_exibir">
+              <property name="text">
+               <string>Exibir</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </widget>
+       </widget>
+       <widget class="QFrame" name="frame_lista_referencia">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>480</y>
+          <width>761</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+	background-color: rgb(255, 255, 255);
+	border: 2px solid rgb(27, 122, 174);
+	border-radius: 2px;
+	color: rgb(0, 0, 0);
+}</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QPushButton" name="pushButton_lista_limpar_referencia">
+         <property name="geometry">
+          <rect>
+           <x>710</x>
+           <y>25</y>
+           <width>40</width>
+           <height>40</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgb(51, 255, 51);
+	border-radius: 20px;
+	font-size: 14px;
+	color: white;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_lista_referencia">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>5</y>
+           <width>690</width>
+           <height>80</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Referência</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
