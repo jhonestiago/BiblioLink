@@ -113,92 +113,7 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.label_login_msg.setStyleSheet(self.cor_erro)
             self.frame_login_msg.show()
     
-    def listar_livros_tabela(self) -> None:
-        cont_linhas = 0
-        self.tableWidget_lista_livros.clearContents()
-        self.tableWidget_lista_livros.setRowCount(len(self.controle_livro.lista_livros))
-        for livro in self.controle_livro.lista_livros:
-            self.tableWidget_lista_livros.setItem(cont_linhas, 0, QTableWidgetItem(livro.autores[0].sobrenome))
-            autor_sec = livro.autores[1].sobrenome if len(livro.autores) >= 2 else ''
-            autor_ter = livro.autores[2].sobrenome if len(livro.autores) == 3 else ''
-            self.tableWidget_lista_livros.setItem(cont_linhas, 1, QTableWidgetItem(autor_sec))
-            self.tableWidget_lista_livros.setItem(cont_linhas, 2, QTableWidgetItem(autor_ter))
-            self.tableWidget_lista_livros.setItem(cont_linhas, 3, QTableWidgetItem(livro.quant_autores))
-            self.tableWidget_lista_livros.setItem(cont_linhas, 4, QTableWidgetItem(livro.titulo_publicacao))
-            self.tableWidget_lista_livros.setItem(cont_linhas, 5, QTableWidgetItem(livro.subtitulo_publicacao))
-            self.tableWidget_lista_livros.setItem(cont_linhas, 6, QTableWidgetItem(livro.edicao))
-            self.tableWidget_lista_livros.setItem(cont_linhas, 7, QTableWidgetItem(livro.tradutores))
-            self.tableWidget_lista_livros.setItem(cont_linhas, 8, QTableWidgetItem(livro.local_publicacao))
-            self.tableWidget_lista_livros.setItem(cont_linhas, 9, QTableWidgetItem(livro.editora))
-            self.tableWidget_lista_livros.setItem(cont_linhas, 10, QTableWidgetItem(livro.ano_publicacao))
-            self.tableWidget_lista_livros.setItem(cont_linhas, 11, QTableWidgetItem(livro.total_paginas))
-            self.tableWidget_lista_livros.setItem(cont_linhas, 12, QTableWidgetItem(livro.titulo_original))
-            self.tableWidget_lista_livros.setItem(cont_linhas, 13, QTableWidgetItem(livro.colecao))
-            self.tableWidget_lista_livros.setItem(cont_linhas, 14, QTableWidgetItem(livro.volume))
-            self.tableWidget_lista_livros.setItem(cont_linhas, 15, QTableWidgetItem(livro.versao))
-            self.tableWidget_lista_livros.setItem(cont_linhas, 16, QTableWidgetItem(livro.isbn))
-            self.tableWidget_lista_livros.setItem(cont_linhas, 17, QTableWidgetItem(livro.site))
-            self.tableWidget_lista_livros.setItem(cont_linhas, 18, QTableWidgetItem(livro.acesso))
-            self.tableWidget_lista_livros.setItem(cont_linhas, 19, QTableWidgetItem(livro.gerar_referencia_html()))
-            cont_linhas += 1
-
-    def listar_artigos_tabela(self) -> None:
-        cont_linhas = 0
-        self.tableWidget_lista_artigos.clearContents()
-        self.tableWidget_lista_artigos.setRowCount(len(self.controle_artigo.lista_artigos))
-        for artigo in self.controle_artigo.lista_artigos:
-            self.tableWidget_lista_artigos.setItem(cont_linhas, 0, QTableWidgetItem(artigo.autores[0].sobrenome))
-            autor_sec = artigo.autores[1].sobrenome if len(artigo.autores) >= 2 else ''
-            autor_ter = artigo.autores[2].sobrenome if len(artigo.autores) == 3 else ''
-            self.tableWidget_lista_artigos.setItem(cont_linhas, 1, QTableWidgetItem(autor_sec))
-            self.tableWidget_lista_artigos.setItem(cont_linhas, 2, QTableWidgetItem(autor_ter))
-            self.tableWidget_lista_artigos.setItem(cont_linhas, 3, QTableWidgetItem(artigo.quant_autores))
-            self.tableWidget_lista_artigos.setItem(cont_linhas, 4, QTableWidgetItem(artigo.titulo_publicacao))
-            self.tableWidget_lista_artigos.setItem(cont_linhas, 5, QTableWidgetItem(artigo.subtitulo_publicacao))
-            self.tableWidget_lista_artigos.setItem(cont_linhas, 6, QTableWidgetItem(artigo.titulo_periodico))
-            self.tableWidget_lista_artigos.setItem(cont_linhas, 7, QTableWidgetItem(artigo.subtitulo_periodico))
-            self.tableWidget_lista_artigos.setItem(cont_linhas, 8, QTableWidgetItem(artigo.local_publicacao))
-            self.tableWidget_lista_artigos.setItem(cont_linhas, 9, QTableWidgetItem(artigo.ano_periodico))
-            self.tableWidget_lista_artigos.setItem(cont_linhas, 10, QTableWidgetItem(artigo.volume))
-            self.tableWidget_lista_artigos.setItem(cont_linhas, 11, QTableWidgetItem(artigo.numero))
-            self.tableWidget_lista_artigos.setItem(cont_linhas, 12, QTableWidgetItem(artigo.edicao))
-            self.tableWidget_lista_artigos.setItem(cont_linhas, 13, QTableWidgetItem(artigo.tomo))
-            self.tableWidget_lista_artigos.setItem(cont_linhas, 14, QTableWidgetItem(artigo.paginas))
-            self.tableWidget_lista_artigos.setItem(cont_linhas, 15, QTableWidgetItem(artigo.periodo))
-            self.tableWidget_lista_artigos.setItem(cont_linhas, 16, QTableWidgetItem(artigo.ano_publicacao))
-            self.tableWidget_lista_artigos.setItem(cont_linhas, 17, QTableWidgetItem(artigo.issn))
-            self.tableWidget_lista_artigos.setItem(cont_linhas, 18, QTableWidgetItem(artigo.versao))
-            self.tableWidget_lista_artigos.setItem(cont_linhas, 19, QTableWidgetItem(artigo.doi))
-            self.tableWidget_lista_artigos.setItem(cont_linhas, 20, QTableWidgetItem(artigo.site))
-            self.tableWidget_lista_artigos.setItem(cont_linhas, 21, QTableWidgetItem(artigo.acesso))
-            self.tableWidget_lista_artigos.setItem(cont_linhas, 22, QTableWidgetItem(artigo.gerar_referencia_html()))
-            cont_linhas += 1
-
-    def listar_teses_tabela(self) -> None:
-        cont_linhas = 0
-        self.tableWidget_lista_teses.clearContents()
-        self.tableWidget_lista_teses.setRowCount(len(self.controle_tese.lista_teses))
-        for tese in self.controle_tese.lista_teses:
-            self.tableWidget_lista_teses.setItem(cont_linhas, 0, QTableWidgetItem(tese.autores[0].sobrenome))
-            autor_sec = tese.autores[1].sobrenome if len(tese.autores) == 2 else ''
-            self.tableWidget_lista_teses.setItem(cont_linhas, 1, QTableWidgetItem(autor_sec))
-            self.tableWidget_lista_teses.setItem(cont_linhas, 2, QTableWidgetItem(tese.titulo_publicacao))
-            self.tableWidget_lista_teses.setItem(cont_linhas, 3, QTableWidgetItem(tese.subtitulo_publicacao))
-            self.tableWidget_lista_teses.setItem(cont_linhas, 4, QTableWidgetItem(tese.orientador))
-            self.tableWidget_lista_teses.setItem(cont_linhas, 5, QTableWidgetItem(tese.ano_deposito))
-            self.tableWidget_lista_teses.setItem(cont_linhas, 6, QTableWidgetItem(tese.total_folhas))
-            self.tableWidget_lista_teses.setItem(cont_linhas, 7, QTableWidgetItem(tese.tipo_trabalho))
-            self.tableWidget_lista_teses.setItem(cont_linhas, 8, QTableWidgetItem(tese.grau_academico))
-            self.tableWidget_lista_teses.setItem(cont_linhas, 9, QTableWidgetItem(tese.instituto))
-            self.tableWidget_lista_teses.setItem(cont_linhas, 10, QTableWidgetItem(tese.universidade))
-            self.tableWidget_lista_teses.setItem(cont_linhas, 11, QTableWidgetItem(tese.local_publicacao))
-            self.tableWidget_lista_teses.setItem(cont_linhas, 12, QTableWidgetItem(tese.ano_publicacao))
-            self.tableWidget_lista_teses.setItem(cont_linhas, 13, QTableWidgetItem(tese.versao))
-            self.tableWidget_lista_teses.setItem(cont_linhas, 14, QTableWidgetItem(tese.site))
-            self.tableWidget_lista_teses.setItem(cont_linhas, 15, QTableWidgetItem(tese.acesso))
-            self.tableWidget_lista_teses.setItem(cont_linhas, 16, QTableWidgetItem(tese.gerar_referencia_html()))
-            cont_linhas += 1
-
+    # Métodos (Livro)
 
     def salvar_livro(self) -> None:
         livro = Livro()
@@ -243,7 +158,51 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.frame_livro_msg.show()
             self.label_livro_referencia.setText(livro.gerar_referencia_html())
             self.listar_livros_tabela()
-        
+
+    def listar_livros_tabela(self) -> None:
+        cont_linhas = 0
+        self.tableWidget_lista_livros.clearContents()
+        self.tableWidget_lista_livros.setRowCount(len(self.controle_livro.lista_livros))
+        for livro in self.controle_livro.lista_livros:
+            self.tableWidget_lista_livros.setItem(cont_linhas, 0, QTableWidgetItem(livro.autores[0].sobrenome))
+            autor_sec = livro.autores[1].sobrenome if len(livro.autores) >= 2 else ''
+            autor_ter = livro.autores[2].sobrenome if len(livro.autores) == 3 else ''
+            self.tableWidget_lista_livros.setItem(cont_linhas, 1, QTableWidgetItem(autor_sec))
+            self.tableWidget_lista_livros.setItem(cont_linhas, 2, QTableWidgetItem(autor_ter))
+            self.tableWidget_lista_livros.setItem(cont_linhas, 3, QTableWidgetItem(livro.quant_autores))
+            self.tableWidget_lista_livros.setItem(cont_linhas, 4, QTableWidgetItem(livro.titulo_publicacao))
+            self.tableWidget_lista_livros.setItem(cont_linhas, 5, QTableWidgetItem(livro.subtitulo_publicacao))
+            self.tableWidget_lista_livros.setItem(cont_linhas, 6, QTableWidgetItem(livro.edicao))
+            self.tableWidget_lista_livros.setItem(cont_linhas, 7, QTableWidgetItem(livro.tradutores))
+            self.tableWidget_lista_livros.setItem(cont_linhas, 8, QTableWidgetItem(livro.local_publicacao))
+            self.tableWidget_lista_livros.setItem(cont_linhas, 9, QTableWidgetItem(livro.editora))
+            self.tableWidget_lista_livros.setItem(cont_linhas, 10, QTableWidgetItem(livro.ano_publicacao))
+            self.tableWidget_lista_livros.setItem(cont_linhas, 11, QTableWidgetItem(livro.total_paginas))
+            self.tableWidget_lista_livros.setItem(cont_linhas, 12, QTableWidgetItem(livro.titulo_original))
+            self.tableWidget_lista_livros.setItem(cont_linhas, 13, QTableWidgetItem(livro.colecao))
+            self.tableWidget_lista_livros.setItem(cont_linhas, 14, QTableWidgetItem(livro.volume))
+            self.tableWidget_lista_livros.setItem(cont_linhas, 15, QTableWidgetItem(livro.versao))
+            self.tableWidget_lista_livros.setItem(cont_linhas, 16, QTableWidgetItem(livro.isbn))
+            self.tableWidget_lista_livros.setItem(cont_linhas, 17, QTableWidgetItem(livro.site))
+            self.tableWidget_lista_livros.setItem(cont_linhas, 18, QTableWidgetItem(livro.acesso))
+            self.tableWidget_lista_livros.setItem(cont_linhas, 19, QTableWidgetItem(livro.gerar_referencia_html()))
+            cont_linhas += 1
+
+    def excluir_livro(self) -> None:
+        indice = self.tableWidget_lista_livros.currentRow()
+        msg = self.controle_livro.excluir_livro(indice)
+        self.label_lista_msg.setText(msg)
+        self.label_lista_msg.setStyleSheet(self.cor_sucesso)
+        self.frame_lista_msg.show()
+    
+    def exibir_referencia_livro(self) -> None:
+        linha = self.tableWidget_lista_livros.currentRow()
+        coluna = 19
+        referencia = self.tableWidget_lista_livros.item(linha, coluna).text()
+        self.label_lista_referencia.setText(referencia)
+
+    # Métodos (Artigo)
+
     def salvar_artigo(self) -> None:
         artigo = Artigo()
         artigo.add_autor(Autor())
@@ -290,7 +249,54 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.frame_artigo_msg.show()
             self.label_artigo_referencia.setText(artigo.gerar_referencia_html())
             self.listar_artigos_tabela()
-    
+
+    def listar_artigos_tabela(self) -> None:
+        cont_linhas = 0
+        self.tableWidget_lista_artigos.clearContents()
+        self.tableWidget_lista_artigos.setRowCount(len(self.controle_artigo.lista_artigos))
+        for artigo in self.controle_artigo.lista_artigos:
+            self.tableWidget_lista_artigos.setItem(cont_linhas, 0, QTableWidgetItem(artigo.autores[0].sobrenome))
+            autor_sec = artigo.autores[1].sobrenome if len(artigo.autores) >= 2 else ''
+            autor_ter = artigo.autores[2].sobrenome if len(artigo.autores) == 3 else ''
+            self.tableWidget_lista_artigos.setItem(cont_linhas, 1, QTableWidgetItem(autor_sec))
+            self.tableWidget_lista_artigos.setItem(cont_linhas, 2, QTableWidgetItem(autor_ter))
+            self.tableWidget_lista_artigos.setItem(cont_linhas, 3, QTableWidgetItem(artigo.quant_autores))
+            self.tableWidget_lista_artigos.setItem(cont_linhas, 4, QTableWidgetItem(artigo.titulo_publicacao))
+            self.tableWidget_lista_artigos.setItem(cont_linhas, 5, QTableWidgetItem(artigo.subtitulo_publicacao))
+            self.tableWidget_lista_artigos.setItem(cont_linhas, 6, QTableWidgetItem(artigo.titulo_periodico))
+            self.tableWidget_lista_artigos.setItem(cont_linhas, 7, QTableWidgetItem(artigo.subtitulo_periodico))
+            self.tableWidget_lista_artigos.setItem(cont_linhas, 8, QTableWidgetItem(artigo.local_publicacao))
+            self.tableWidget_lista_artigos.setItem(cont_linhas, 9, QTableWidgetItem(artigo.ano_periodico))
+            self.tableWidget_lista_artigos.setItem(cont_linhas, 10, QTableWidgetItem(artigo.volume))
+            self.tableWidget_lista_artigos.setItem(cont_linhas, 11, QTableWidgetItem(artigo.numero))
+            self.tableWidget_lista_artigos.setItem(cont_linhas, 12, QTableWidgetItem(artigo.edicao))
+            self.tableWidget_lista_artigos.setItem(cont_linhas, 13, QTableWidgetItem(artigo.tomo))
+            self.tableWidget_lista_artigos.setItem(cont_linhas, 14, QTableWidgetItem(artigo.paginas))
+            self.tableWidget_lista_artigos.setItem(cont_linhas, 15, QTableWidgetItem(artigo.periodo))
+            self.tableWidget_lista_artigos.setItem(cont_linhas, 16, QTableWidgetItem(artigo.ano_publicacao))
+            self.tableWidget_lista_artigos.setItem(cont_linhas, 17, QTableWidgetItem(artigo.issn))
+            self.tableWidget_lista_artigos.setItem(cont_linhas, 18, QTableWidgetItem(artigo.versao))
+            self.tableWidget_lista_artigos.setItem(cont_linhas, 19, QTableWidgetItem(artigo.doi))
+            self.tableWidget_lista_artigos.setItem(cont_linhas, 20, QTableWidgetItem(artigo.site))
+            self.tableWidget_lista_artigos.setItem(cont_linhas, 21, QTableWidgetItem(artigo.acesso))
+            self.tableWidget_lista_artigos.setItem(cont_linhas, 22, QTableWidgetItem(artigo.gerar_referencia_html()))
+            cont_linhas += 1
+
+    def excluir_artigo(self) -> None:
+        indice = self.tableWidget_lista_artigos.currentRow()
+        msg = self.controle_artigo.excluir_artigo(indice)
+        self.label_lista_msg.setText(msg)
+        self.label_lista_msg.setStyleSheet(self.cor_sucesso)
+        self.frame_lista_msg.show()
+
+    def exibir_referencia_artigo(self) -> None:
+        linha = self.tableWidget_lista_artigos.currentRow()
+        coluna = 22
+        referencia = self.tableWidget_lista_artigos.item(linha, coluna).text()
+        self.label_lista_referencia.setText(referencia)
+
+    # Métodos (Tese)
+
     def salvar_tese(self) -> None:
         tese = Tese()
         tese.add_autor(Autor())
@@ -326,20 +332,30 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.label_tese_referencia.setText(tese.gerar_referencia_html())
             self.listar_teses_tabela()
 
-
-    def excluir_livro(self) -> None:
-        indice = self.tableWidget_lista_livros.currentRow()
-        msg = self.controle_livro.excluir_livro(indice)
-        self.label_lista_msg.setText(msg)
-        self.label_lista_msg.setStyleSheet(self.cor_sucesso)
-        self.frame_lista_msg.show()
-    
-    def excluir_artigo(self) -> None:
-        indice = self.tableWidget_lista_artigos.currentRow()
-        msg = self.controle_artigo.excluir_artigo(indice)
-        self.label_lista_msg.setText(msg)
-        self.label_lista_msg.setStyleSheet(self.cor_sucesso)
-        self.frame_lista_msg.show()
+    def listar_teses_tabela(self) -> None:
+        cont_linhas = 0
+        self.tableWidget_lista_teses.clearContents()
+        self.tableWidget_lista_teses.setRowCount(len(self.controle_tese.lista_teses))
+        for tese in self.controle_tese.lista_teses:
+            self.tableWidget_lista_teses.setItem(cont_linhas, 0, QTableWidgetItem(tese.autores[0].sobrenome))
+            autor_sec = tese.autores[1].sobrenome if len(tese.autores) == 2 else ''
+            self.tableWidget_lista_teses.setItem(cont_linhas, 1, QTableWidgetItem(autor_sec))
+            self.tableWidget_lista_teses.setItem(cont_linhas, 2, QTableWidgetItem(tese.titulo_publicacao))
+            self.tableWidget_lista_teses.setItem(cont_linhas, 3, QTableWidgetItem(tese.subtitulo_publicacao))
+            self.tableWidget_lista_teses.setItem(cont_linhas, 4, QTableWidgetItem(tese.orientador))
+            self.tableWidget_lista_teses.setItem(cont_linhas, 5, QTableWidgetItem(tese.ano_deposito))
+            self.tableWidget_lista_teses.setItem(cont_linhas, 6, QTableWidgetItem(tese.total_folhas))
+            self.tableWidget_lista_teses.setItem(cont_linhas, 7, QTableWidgetItem(tese.tipo_trabalho))
+            self.tableWidget_lista_teses.setItem(cont_linhas, 8, QTableWidgetItem(tese.grau_academico))
+            self.tableWidget_lista_teses.setItem(cont_linhas, 9, QTableWidgetItem(tese.instituto))
+            self.tableWidget_lista_teses.setItem(cont_linhas, 10, QTableWidgetItem(tese.universidade))
+            self.tableWidget_lista_teses.setItem(cont_linhas, 11, QTableWidgetItem(tese.local_publicacao))
+            self.tableWidget_lista_teses.setItem(cont_linhas, 12, QTableWidgetItem(tese.ano_publicacao))
+            self.tableWidget_lista_teses.setItem(cont_linhas, 13, QTableWidgetItem(tese.versao))
+            self.tableWidget_lista_teses.setItem(cont_linhas, 14, QTableWidgetItem(tese.site))
+            self.tableWidget_lista_teses.setItem(cont_linhas, 15, QTableWidgetItem(tese.acesso))
+            self.tableWidget_lista_teses.setItem(cont_linhas, 16, QTableWidgetItem(tese.gerar_referencia_html()))
+            cont_linhas += 1
     
     def excluir_tese(self) -> None:
         indice = self.tableWidget_lista_teses.currentRow()
@@ -347,24 +363,14 @@ class Principal(Ui_MainWindow, QMainWindow):
         self.label_lista_msg.setText(msg)
         self.label_lista_msg.setStyleSheet(self.cor_sucesso)
         self.frame_lista_msg.show()
-    
-    def exibir_referencia_livro(self) -> None:
-        linha = self.tableWidget_lista_livros.currentRow()
-        coluna = 19
-        referencia = self.tableWidget_lista_livros.item(linha, coluna).text()
-        self.label_lista_referencia.setText(referencia)
-    
-    def exibir_referencia_artigo(self) -> None:
-        linha = self.tableWidget_lista_artigos.currentRow()
-        coluna = 22
-        referencia = self.tableWidget_lista_artigos.item(linha, coluna).text()
-        self.label_lista_referencia.setText(referencia)
 
     def exibir_referencia_tese(self) -> None:
         linha = self.tableWidget_lista_teses.currentRow()
         coluna = 16
         referencia = self.tableWidget_lista_teses.item(linha, coluna).text()
         self.label_lista_referencia.setText(referencia)
+    
+    # Métodos Gerais
 
     def acessar_livro(self) -> None:
         self.stackedWidget_sistema.setCurrentWidget(self.page_sistema_livro)
@@ -384,10 +390,10 @@ class Principal(Ui_MainWindow, QMainWindow):
     def sair_sistema(self) -> None:
         self.stackedWidget_sistema.setCurrentWidget(self.page_sistema_login)
     
-    def set_label_img(self, label:QLabel, end_img:str) -> None:
-        img = QPixmap(end_img)
-        img = img.scaled(label.width(), label.height(), Qt.AspectRatioMode.KeepAspectRatio)
-        label.setPixmap(img)
+    #def set_label_img(self, label:QLabel, end_img:str) -> None:
+        #img = QPixmap(end_img)
+        #img = img.scaled(label.width(), label.height(), Qt.AspectRatioMode.KeepAspectRatio)
+        #label.setPixmap(img)
 
 if __name__ == '__main__':
     qt = QApplication(sys.argv)
