@@ -62,7 +62,11 @@
 QLabel {
 	color: white;
 	font-family: 'Candara', Arial, sans-serif;
-	font-size: 12px;
+	font-size: 14px;
+}
+#label_tese_referencia, #label_artigo_referencia, #label_livro_referencia, #label_lista_referencia {
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 14px
 }</string>
      </property>
      <property name="currentIndex">
@@ -169,19 +173,6 @@ QLineEdit {
            </widget>
           </widget>
          </item>
-         <item row="0" column="0">
-          <spacer name="horizontalSpacer">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
          <item row="0" column="2">
           <spacer name="horizontalSpacer_2">
            <property name="orientation">
@@ -224,6 +215,32 @@ QLineEdit {
             <string>Entrar</string>
            </property>
           </widget>
+         </item>
+         <item row="0" column="0">
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="4" column="1">
+          <spacer name="verticalSpacer_7">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
          </item>
         </layout>
        </widget>
@@ -2157,7 +2174,7 @@ QComboBox QAbstractItemView {
             <set>Qt::AlignCenter</set>
            </property>
            <property name="placeholderText">
-            <string>Número</string>
+            <string>...</string>
            </property>
           </widget>
          </item>
@@ -2486,7 +2503,7 @@ QComboBox QAbstractItemView {
          </property>
          <property name="styleSheet">
           <string notr="true">#tabWidget_lista_dados {
-	background-color: rgb(255, 255, 255);
+	background-color: rgb(28, 25, 72);
 }
 QTabBar::tab:!selected {
 	font-family: 'Candara', Arial, sans-serif;
@@ -2504,6 +2521,11 @@ QTabBar::tab-line {
 	font-family: 'Candara', Arial, sans-serif;
 	font-size: 11px;
 	background-color: rgb(28, 25, 72);
+}
+QTableWidget {
+	background-color: rgb(255, 255, 255);
+	font-family: 'Times New Roman', Times, serif;
+	font-size:14px;
 }
 	
 </string>
@@ -2654,13 +2676,6 @@ QTabBar::tab-line {
             <enum>QFrame::Raised</enum>
            </property>
            <layout class="QGridLayout" name="gridLayout_8">
-            <item row="4" column="0">
-             <widget class="QPushButton" name="pushButton_lista_livros_novo">
-              <property name="text">
-               <string>Novo</string>
-              </property>
-             </widget>
-            </item>
             <item row="2" column="0">
              <widget class="QPushButton" name="pushButton_lista_livros_exibir">
               <property name="text">
@@ -2668,14 +2683,21 @@ QTabBar::tab-line {
               </property>
              </widget>
             </item>
-            <item row="7" column="0">
-             <widget class="QPushButton" name="pushButton_lista_livros_home">
+            <item row="5" column="0">
+             <widget class="QPushButton" name="pushButton_lista_livros_novo">
               <property name="text">
-               <string>Home</string>
+               <string>Novo</string>
               </property>
              </widget>
             </item>
-            <item row="8" column="0">
+            <item row="4" column="0">
+             <widget class="QPushButton" name="pushButton_lista_livros_excluir">
+              <property name="text">
+               <string>Excluir</string>
+              </property>
+             </widget>
+            </item>
+            <item row="9" column="0">
              <spacer name="verticalSpacer_4">
               <property name="orientation">
                <enum>Qt::Vertical</enum>
@@ -2688,10 +2710,17 @@ QTabBar::tab-line {
               </property>
              </spacer>
             </item>
-            <item row="3" column="0">
-             <widget class="QPushButton" name="pushButton_lista_livros_excluir">
+            <item row="8" column="0">
+             <widget class="QPushButton" name="pushButton_lista_livros_home">
               <property name="text">
-               <string>Excluir</string>
+               <string>Home</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QPushButton" name="pushButton_lista_livros_alterar">
+              <property name="text">
+               <string>Alterar</string>
               </property>
              </widget>
             </item>
@@ -2860,14 +2889,7 @@ QTabBar::tab-line {
               </property>
              </widget>
             </item>
-            <item row="7" column="0">
-             <widget class="QPushButton" name="pushButton_lista_artigos_home">
-              <property name="text">
-               <string>Home</string>
-              </property>
-             </widget>
-            </item>
-            <item row="8" column="0">
+            <item row="9" column="0">
              <spacer name="verticalSpacer_5">
               <property name="orientation">
                <enum>Qt::Vertical</enum>
@@ -2880,7 +2902,21 @@ QTabBar::tab-line {
               </property>
              </spacer>
             </item>
+            <item row="8" column="0">
+             <widget class="QPushButton" name="pushButton_lista_artigos_home">
+              <property name="text">
+               <string>Home</string>
+              </property>
+             </widget>
+            </item>
             <item row="4" column="0">
+             <widget class="QPushButton" name="pushButton_lista_artigos_excluir">
+              <property name="text">
+               <string>Excluir</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="0">
              <widget class="QPushButton" name="pushButton_lista_artigos_novo">
               <property name="text">
                <string>Novo</string>
@@ -2888,9 +2924,9 @@ QTabBar::tab-line {
              </widget>
             </item>
             <item row="3" column="0">
-             <widget class="QPushButton" name="pushButton_lista_artigos_excluir">
+             <widget class="QPushButton" name="pushButton_lista_artigos_alterar">
               <property name="text">
-               <string>Excluir</string>
+               <string>Alterar</string>
               </property>
              </widget>
             </item>
@@ -3022,21 +3058,21 @@ QTabBar::tab-line {
             <enum>QFrame::Raised</enum>
            </property>
            <layout class="QGridLayout" name="gridLayout_10">
-            <item row="6" column="0">
+            <item row="7" column="0">
              <widget class="QPushButton" name="pushButton_lista_teses_novo">
               <property name="text">
                <string>Novo</string>
               </property>
              </widget>
             </item>
-            <item row="4" column="0">
+            <item row="5" column="0">
              <widget class="QPushButton" name="pushButton_lista_teses_excluir">
               <property name="text">
                <string>Excluir</string>
               </property>
              </widget>
             </item>
-            <item row="8" column="0">
+            <item row="9" column="0">
              <spacer name="verticalSpacer_6">
               <property name="orientation">
                <enum>Qt::Vertical</enum>
@@ -3049,7 +3085,7 @@ QTabBar::tab-line {
               </property>
              </spacer>
             </item>
-            <item row="7" column="0">
+            <item row="8" column="0">
              <widget class="QPushButton" name="pushButton_lista_teses_home">
               <property name="text">
                <string>Home</string>
@@ -3060,6 +3096,13 @@ QTabBar::tab-line {
              <widget class="QPushButton" name="pushButton_lista_teses_exibir">
               <property name="text">
                <string>Exibir</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <widget class="QPushButton" name="pushButton_lista_teses_alterar">
+              <property name="text">
+               <string>Alterar</string>
               </property>
              </widget>
             </item>
@@ -3120,6 +3163,9 @@ QTabBar::tab-line {
            <width>690</width>
            <height>80</height>
           </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>Referência</string>

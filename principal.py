@@ -190,17 +190,29 @@ class Principal(Ui_MainWindow, QMainWindow):
 
     def excluir_livro(self) -> None:
         indice = self.tableWidget_lista_livros.currentRow()
-        msg = self.controle_livro.excluir_livro(indice)
-        self.tableWidget_lista_livros.removeRow(indice)
-        self.label_lista_msg.setText(msg)
-        self.label_lista_msg.setStyleSheet(self.cor_sucesso)
-        self.frame_lista_msg.show()
+        if indice >= 0:
+            msg = self.controle_livro.excluir_livro(indice)
+            self.tableWidget_lista_livros.removeRow(indice)
+            self.label_lista_msg.setText(msg)
+            self.label_lista_msg.setStyleSheet(self.cor_sucesso)
+            self.frame_lista_msg.show()
+        else:
+            msg = 'Por favor, selecione a linha do livro que deseja excluir'
+            self.label_lista_msg.setText(msg)
+            self.label_lista_msg.setStyleSheet(self.cor_erro)
+            self.frame_lista_msg.show()
     
     def exibir_referencia_livro(self) -> None:
         linha = self.tableWidget_lista_livros.currentRow()
-        coluna = 19
-        referencia = self.tableWidget_lista_livros.item(linha, coluna).text()
-        self.label_lista_referencia.setText(referencia)
+        if linha >= 0:
+            coluna = 19
+            referencia = self.tableWidget_lista_livros.item(linha, coluna).text()
+            self.label_lista_referencia.setText(referencia)
+        else:
+            msg = 'Por favor, selecione a linha da qual deseja exibir a referência'
+            self.label_lista_msg.setText(msg)
+            self.label_lista_msg.setStyleSheet(self.cor_erro)
+            self.frame_lista_msg.show()
 
     # Métodos (Artigo)
 
@@ -285,17 +297,29 @@ class Principal(Ui_MainWindow, QMainWindow):
 
     def excluir_artigo(self) -> None:
         indice = self.tableWidget_lista_artigos.currentRow()
-        msg = self.controle_artigo.excluir_artigo(indice)
-        self.tableWidget_lista_artigos.removeRow(indice)
-        self.label_lista_msg.setText(msg)
-        self.label_lista_msg.setStyleSheet(self.cor_sucesso)
-        self.frame_lista_msg.show()
+        if indice >= 0:
+            msg = self.controle_artigo.excluir_artigo(indice)
+            self.tableWidget_lista_artigos.removeRow(indice)
+            self.label_lista_msg.setText(msg)
+            self.label_lista_msg.setStyleSheet(self.cor_sucesso)
+            self.frame_lista_msg.show()
+        else:
+            msg = 'Por favor, selecione a linha do artigo que deseja excluir'
+            self.label_lista_msg.setText(msg)
+            self.label_lista_msg.setStyleSheet(self.cor_erro)
+            self.frame_lista_msg.show()
 
     def exibir_referencia_artigo(self) -> None:
         linha = self.tableWidget_lista_artigos.currentRow()
-        coluna = 22
-        referencia = self.tableWidget_lista_artigos.item(linha, coluna).text()
-        self.label_lista_referencia.setText(referencia)
+        if linha >= 0:
+            coluna = 22
+            referencia = self.tableWidget_lista_artigos.item(linha, coluna).text()
+            self.label_lista_referencia.setText(referencia)
+        else:
+            msg = 'Por favor, selecione a linha da qual deseja exibir a referência'
+            self.label_lista_msg.setText(msg)
+            self.label_lista_msg.setStyleSheet(self.cor_erro)
+            self.frame_lista_msg.show()
 
     # Métodos (Tese)
 
@@ -361,17 +385,29 @@ class Principal(Ui_MainWindow, QMainWindow):
     
     def excluir_tese(self) -> None:
         indice = self.tableWidget_lista_teses.currentRow()
-        msg = self.controle_tese.excluir_tese(indice)
-        self.tableWidget_lista_teses.removeRow(indice)
-        self.label_lista_msg.setText(msg)
-        self.label_lista_msg.setStyleSheet(self.cor_sucesso)
-        self.frame_lista_msg.show()
+        if indice >= 0:
+            msg = self.controle_tese.excluir_tese(indice)
+            self.tableWidget_lista_teses.removeRow(indice)
+            self.label_lista_msg.setText(msg)
+            self.label_lista_msg.setStyleSheet(self.cor_sucesso)
+            self.frame_lista_msg.show()
+        else:
+            msg = 'Por favor, selecione a linha do trabalho que deseja excluir'
+            self.label_lista_msg.setText(msg)
+            self.label_lista_msg.setStyleSheet(self.cor_erro)
+            self.frame_lista_msg.show()
 
     def exibir_referencia_tese(self) -> None:
         linha = self.tableWidget_lista_teses.currentRow()
-        coluna = 16
-        referencia = self.tableWidget_lista_teses.item(linha, coluna).text()
-        self.label_lista_referencia.setText(referencia)
+        if linha >= 0:
+            coluna = 16
+            referencia = self.tableWidget_lista_teses.item(linha, coluna).text()
+            self.label_lista_referencia.setText(referencia)
+        else:
+            msg = 'Por favor, selecione a linha da qual deseja exibir a referência'
+            self.label_lista_msg.setText(msg)
+            self.label_lista_msg.setStyleSheet(self.cor_erro)
+            self.frame_lista_msg.show()
     
     # Métodos Gerais
 
