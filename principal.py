@@ -1,7 +1,7 @@
 import sys
 
 from gui_principal import Ui_MainWindow
-from PyQt6.QtWidgets import QMainWindow, QApplication, QLabel, QTableWidgetItem
+from PyQt6.QtWidgets import QMainWindow, QApplication, QTableWidgetItem, QLineEdit, QRadioButton, QComboBox
 from PyQt6.QtGui import QPixmap, QIcon
 from PyQt6.QtCore import Qt
 
@@ -47,9 +47,10 @@ class Principal(Ui_MainWindow, QMainWindow):
         #Componentes da tela: Livro
         self.frame_livro_msg.hide()
         self.label_icon_livro.setPixmap(QPixmap('img/icon_livro.png'))
-        self.pushButton_livro_home.clicked.connect(self.acessar_home)
-        self.pushButton_livro_lista.clicked.connect(self.acessar_lista)
         self.pushButton_livro_salvar.clicked.connect(self.salvar_livro)
+        self.pushButton_livro_lista.clicked.connect(self.acessar_lista)
+        self.pushButton_livro_novo.clicked.connect(self.novo_livro)
+        self.pushButton_livro_home.clicked.connect(self.acessar_home)
         self.pushButton_livro_limpar_referencia.setIcon(QIcon('img/icon_limpar.png'))
         self.pushButton_livro_limpar_referencia.clicked.connect(lambda: self.label_livro_referencia.setText('Referência'))
         self.pushButton_livro_fechar_msg.clicked.connect(lambda: self.frame_livro_msg.hide())
@@ -57,9 +58,10 @@ class Principal(Ui_MainWindow, QMainWindow):
         #Componentes da tela: Artigo
         self.frame_artigo_msg.hide()
         self.label_icon_artigo.setPixmap(QPixmap('img/icon_artigo.png'))
-        self.pushButton_artigo_home.clicked.connect(self.acessar_home)
-        self.pushButton_artigo_lista.clicked.connect(self.acessar_lista)
         self.pushButton_artigo_salvar.clicked.connect(self.salvar_artigo)
+        self.pushButton_artigo_lista.clicked.connect(self.acessar_lista)
+        self.pushButton_artigo_novo.clicked.connect(self.novo_artigo)
+        self.pushButton_artigo_home.clicked.connect(self.acessar_home)
         self.pushButton_artigo_limpar_referencia.setIcon(QIcon('img/icon_limpar.png'))
         self.pushButton_artigo_limpar_referencia.clicked.connect(lambda: self.label_artigo_referencia.setText('Referência'))
         self.pushButton_artigo_fechar_msg.clicked.connect(lambda: self.frame_artigo_msg.hide())
@@ -67,9 +69,10 @@ class Principal(Ui_MainWindow, QMainWindow):
         #Componentes da tela: Trabalhos Acadêmicos / Tese
         self.frame_tese_msg.hide()
         self.label_icon_tese.setPixmap(QPixmap('img/icon_tese.png'))
-        self.pushButton_tese_home.clicked.connect(self.acessar_home)
-        self.pushButton_tese_lista.clicked.connect(self.acessar_lista)
         self.pushButton_tese_salvar.clicked.connect(self.salvar_tese)
+        self.pushButton_tese_lista.clicked.connect(self.acessar_lista)
+        self.pushButton_tese_novo.clicked.connect(self.nova_tese)
+        self.pushButton_tese_home.clicked.connect(self.acessar_home)
         self.pushButton_tese_limpar_referencia.setIcon(QIcon('img/icon_limpar.png'))
         self.pushButton_tese_limpar_referencia.clicked.connect(lambda : self.label_tese_referencia.setText('Referência'))
         self.pushButton_tese_fechar_msg.clicked.connect(lambda: self.frame_tese_msg.hide())
@@ -84,19 +87,19 @@ class Principal(Ui_MainWindow, QMainWindow):
         #Componentes da tela: Lista(Livros)
         self.pushButton_lista_livros_exibir.clicked.connect(self.exibir_referencia_livro)
         self.pushButton_lista_livros_excluir.clicked.connect(self.excluir_livro)
-        self.pushButton_lista_livros_novo.clicked.connect(self.acessar_livro)
+        self.pushButton_lista_livros_novo.clicked.connect(self.novo_livro)
         self.pushButton_lista_livros_home.clicked.connect(self.acessar_home)
         
         #Componentes da tela: Lista(Artigos)
         self.pushButton_lista_artigos_exibir.clicked.connect(self.exibir_referencia_artigo)
         self.pushButton_lista_artigos_excluir.clicked.connect(self.excluir_artigo)
-        self.pushButton_lista_artigos_novo.clicked.connect(self.acessar_artigo)
+        self.pushButton_lista_artigos_novo.clicked.connect(self.novo_artigo)
         self.pushButton_lista_artigos_home.clicked.connect(self.acessar_home)
 
         #Componentes da tela: Lista(Teses)
         self.pushButton_lista_teses_exibir.clicked.connect(self.exibir_referencia_tese)
         self.pushButton_lista_teses_excluir.clicked.connect(self.excluir_tese)
-        self.pushButton_lista_teses_novo.clicked.connect(self.acessar_tese)
+        self.pushButton_lista_teses_novo.clicked.connect(self.nova_tese)
         self.pushButton_lista_teses_home.clicked.connect(self.acessar_home)
     
     def realizar_login(self) -> None:
@@ -201,6 +204,37 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.label_lista_msg.setText(msg)
             self.label_lista_msg.setStyleSheet(self.cor_erro)
             self.frame_lista_msg.show()
+    
+    def novo_livro(self) -> None:
+        componentes = [
+            self.lineEdit_livro_sobrenome_p_autor,
+            self.lineEdit_livro_nome_p_autor,
+            self.lineEdit_livro_sobrenome_s_autor,
+            self.lineEdit_livro_nome_s_autor,
+            self.lineEdit_livro_sobrenome_t_autor,
+            self.lineEdit_livro_nome_t_autor,
+            self.radioButton_livro_quant_autores_1,
+            self.radioButton_livro_quant_autores_2,
+            self.lineEdit_livro_titulo,
+            self.lineEdit_livro_subtitulo,
+            self.lineEdit_livro_edicao,
+            self.lineEdit_livro_tradutores,
+            self.lineEdit_livro_local,
+            self.lineEdit_livro_editora,
+            self.lineEdit_livro_ano,
+            self.lineEdit_livro_total_paginas,
+            self.lineEdit_livro_titulo_original,
+            self.lineEdit_livro_colecao,
+            self.lineEdit_livro_colecao_volume,
+            self.comboBox_livro_versao,
+            self.lineEdit_livro_isbn,
+            self.lineEdit_livro_site,
+            self.lineEdit_livro_acesso
+        ]
+        self.frame_livro_msg.hide()
+        self.label_livro_referencia.setText('Referência')
+        self.__limpar_componentes(componentes)
+        self.acessar_livro()
     
     def exibir_referencia_livro(self) -> None:
         linha = self.tableWidget_lista_livros.currentRow()
@@ -308,6 +342,40 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.label_lista_msg.setText(msg)
             self.label_lista_msg.setStyleSheet(self.cor_erro)
             self.frame_lista_msg.show()
+    
+    def novo_artigo(self) -> None:
+        componentes = [
+            self.lineEdit_artigo_sobrenome_p_autor,
+            self.lineEdit_artigo_nome_p_autor,
+            self.lineEdit_artigo_sobrenome_s_autor,
+            self.lineEdit_artigo_nome_s_autor,
+            self.lineEdit_artigo_sobrenome_t_autor,
+            self.lineEdit_artigo_nome_t_autor,
+            self.radioButton_artigo_quant_autores_1,
+            self.radioButton_artigo_quant_autores_2,
+            self.lineEdit_artigo_titulo,
+            self.lineEdit_artigo_subtitulo,
+            self.lineEdit_artigo_periodico_titulo,
+            self.lineEdit_artigo_periodico_subtitulo,
+            self.lineEdit_artigo_local,
+            self.lineEdit_artigo_num_ano,
+            self.lineEdit_artigo_volume,
+            self.lineEdit_artigo_numero,
+            self.lineEdit_artigo_edicao,
+            self.lineEdit_artigo_tomo,
+            self.lineEdit_artigo_paginas,
+            self.lineEdit_artigo_periodo,
+            self.lineEdit_artigo_ano,
+            self.lineEdit_artigo_issn,
+            self.comboBox_artigo_versao,
+            self.lineEdit_artigo_doi,
+            self.lineEdit_artigo_site,
+            self.lineEdit_artigo_acesso
+        ]
+        self.frame_artigo_msg.hide()
+        self.label_artigo_referencia.setText('Referência')
+        self.__limpar_componentes(componentes)
+        self.acessar_artigo()
 
     def exibir_referencia_artigo(self) -> None:
         linha = self.tableWidget_lista_artigos.currentRow()
@@ -397,6 +465,32 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.label_lista_msg.setStyleSheet(self.cor_erro)
             self.frame_lista_msg.show()
 
+    def nova_tese(self) -> None:
+        componentes = [
+            self.lineEdit_tese_sobrenome_p_autor,
+            self.lineEdit_tese_nome_p_autor,
+            self.lineEdit_tese_sobrenome_s_autor,
+            self.lineEdit_tese_nome_s_autor,
+            self.lineEdit_tese_titulo,
+            self.lineEdit_tese_subtitulo,
+            self.lineEdit_tese_orientador,
+            self.lineEdit_tese_ano_deposito,
+            self.lineEdit_tese_total_folhas,
+            self.comboBox_tese_tipo_trabalho,
+            self.lineEdit_tese_grau,
+            self.lineEdit_tese_instituto,
+            self.lineEdit_tese_universidade,
+            self.lineEdit_tese_local_defesa,
+            self.lineEdit_tese_ano_defesa,
+            self.comboBox_tese_versao,
+            self.lineEdit_tese_site,
+            self.lineEdit_tese_acesso
+        ]
+        self.frame_tese_msg.hide()
+        self.label_tese_referencia.setText('Referência')
+        self.__limpar_componentes(componentes)
+        self.acessar_tese()
+
     def exibir_referencia_tese(self) -> None:
         linha = self.tableWidget_lista_teses.currentRow()
         if linha >= 0:
@@ -429,10 +523,16 @@ class Principal(Ui_MainWindow, QMainWindow):
     def sair_sistema(self) -> None:
         self.stackedWidget_sistema.setCurrentWidget(self.page_sistema_login)
     
-    #def set_label_img(self, label:QLabel, end_img:str) -> None:
-        #img = QPixmap(end_img)
-        #img = img.scaled(label.width(), label.height(), Qt.AspectRatioMode.KeepAspectRatio)
-        #label.setPixmap(img)
+    def __limpar_componentes(self, componentes:list) -> None:
+        for componente in componentes:
+            if isinstance(componente, QLineEdit):
+                componente.clear()
+            elif isinstance(componente, QRadioButton):
+                componente.setAutoExclusive(False)
+                componente.setChecked(False)
+                componente.setAutoExclusive(True)
+            elif isinstance(componente, QComboBox):
+                componente.setCurrentIndex(0)
 
 if __name__ == '__main__':
     qt = QApplication(sys.argv)
