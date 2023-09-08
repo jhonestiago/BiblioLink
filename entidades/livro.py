@@ -15,6 +15,7 @@ class Livro(ReferenciaBibliografica):
         self.__colecao:str = ''
         self.__volume:str = ''
         self.__isbn:str = ''
+        self.__referencia:str = ''
     
     def gerar_referencia_html(self):
         '''
@@ -54,6 +55,7 @@ class Livro(ReferenciaBibliografica):
             if dado == '':
                 continue
             html_referencia += dado
+        self.__referencia = html_referencia
         return html_referencia
 
     @property
@@ -141,3 +143,17 @@ class Livro(ReferenciaBibliografica):
     def volume(self, volume:str) -> None:
         if len(volume) != 0:
             self.__volume = volume
+    
+    @property
+    def referencia(self):
+        '''
+        Retorna a propriedade referencia
+        '''
+        return self.__referencia
+    
+    @referencia.setter
+    def referencia(self, referencia:str):
+        if referencia != '':
+            self.__referencia = referencia
+        else:
+            self.msg_validacao = 'O campo "Referência" será mantido'

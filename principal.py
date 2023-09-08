@@ -28,6 +28,7 @@ class Principal(Ui_MainWindow, QMainWindow):
     def init_components(self) -> None:
         #Componentes da tela de Login
         self.frame_login_msg.hide()
+        #self.label_login_icone.setPixmap(QPixmap())
         self.pushButton_login_entrar.clicked.connect(self.realizar_login)
         self.pushButton_login_fechar_msg.clicked.connect(lambda: self.frame_login_msg.hide())
 
@@ -49,7 +50,6 @@ class Principal(Ui_MainWindow, QMainWindow):
         self.label_icon_livro.setPixmap(QPixmap('img/icon_livro.png'))
         self.pushButton_livro_salvar.clicked.connect(self.salvar_livro)
         self.pushButton_livro_lista.clicked.connect(self.acessar_lista)
-        self.pushButton_livro_novo.clicked.connect(self.novo_livro)
         self.pushButton_livro_home.clicked.connect(self.acessar_home)
         self.pushButton_livro_limpar_referencia.setIcon(QIcon('img/icon_limpar.png'))
         self.pushButton_livro_limpar_referencia.clicked.connect(lambda: self.label_livro_referencia.setText('Referência'))
@@ -60,7 +60,6 @@ class Principal(Ui_MainWindow, QMainWindow):
         self.label_icon_artigo.setPixmap(QPixmap('img/icon_artigo.png'))
         self.pushButton_artigo_salvar.clicked.connect(self.salvar_artigo)
         self.pushButton_artigo_lista.clicked.connect(self.acessar_lista)
-        self.pushButton_artigo_novo.clicked.connect(self.novo_artigo)
         self.pushButton_artigo_home.clicked.connect(self.acessar_home)
         self.pushButton_artigo_limpar_referencia.setIcon(QIcon('img/icon_limpar.png'))
         self.pushButton_artigo_limpar_referencia.clicked.connect(lambda: self.label_artigo_referencia.setText('Referência'))
@@ -71,7 +70,6 @@ class Principal(Ui_MainWindow, QMainWindow):
         self.label_icon_tese.setPixmap(QPixmap('img/icon_tese.png'))
         self.pushButton_tese_salvar.clicked.connect(self.salvar_tese)
         self.pushButton_tese_lista.clicked.connect(self.acessar_lista)
-        self.pushButton_tese_novo.clicked.connect(self.nova_tese)
         self.pushButton_tese_home.clicked.connect(self.acessar_home)
         self.pushButton_tese_limpar_referencia.setIcon(QIcon('img/icon_limpar.png'))
         self.pushButton_tese_limpar_referencia.clicked.connect(lambda : self.label_tese_referencia.setText('Referência'))
@@ -86,23 +84,32 @@ class Principal(Ui_MainWindow, QMainWindow):
         
         #Componentes da tela: Lista(Livros)
         self.pushButton_lista_livros_exibir.clicked.connect(self.exibir_referencia_livro)
+        self.pushButton_lista_livros_alterar.clicked.connect(self.alterar_dados_livro)
         self.pushButton_lista_livros_excluir.clicked.connect(self.excluir_livro)
-        self.pushButton_lista_livros_novo.clicked.connect(self.novo_livro)
+        self.pushButton_lista_livros_novo.clicked.connect(self.acessar_livro)
         self.pushButton_lista_livros_home.clicked.connect(self.acessar_home)
         
         #Componentes da tela: Lista(Artigos)
         self.pushButton_lista_artigos_exibir.clicked.connect(self.exibir_referencia_artigo)
+        #self.pushButton_lista_artigos_alterar
         self.pushButton_lista_artigos_excluir.clicked.connect(self.excluir_artigo)
-        self.pushButton_lista_artigos_novo.clicked.connect(self.novo_artigo)
+        #self.pushButton_lista_artigos_novo.clicked.connect(self.novo_artigo)
         self.pushButton_lista_artigos_home.clicked.connect(self.acessar_home)
 
         #Componentes da tela: Lista(Teses)
         self.pushButton_lista_teses_exibir.clicked.connect(self.exibir_referencia_tese)
+        #self.pushButton_lista_teses_alterar
         self.pushButton_lista_teses_excluir.clicked.connect(self.excluir_tese)
-        self.pushButton_lista_teses_novo.clicked.connect(self.nova_tese)
+        #self.pushButton_lista_teses_novo.clicked.connect(self.nova_tese)
         self.pushButton_lista_teses_home.clicked.connect(self.acessar_home)
+
+        #Componentes da tela: cadastro de usuário
+        self.frame_cadastro_msg.hide()
+        #self.label_icon_cadastro.setPixmap(QPixmap())
+        #self.pushButton_cadastro_cadastrar()
+        self.pushButton_cadastro_fechar_msg.clicked.connect(lambda: self.frame_cadastro_msg.hide())
     
-    def realizar_login(self) -> None:
+    def realizar_login(self) -> None: # A repensar
         user = self.lineEdit_login_usuario.text()
         senha = self.lineEdit_login_senha.text()
         if user == 'admin' and senha == '12345':
@@ -123,12 +130,12 @@ class Principal(Ui_MainWindow, QMainWindow):
         livro.add_autor(Autor())
         livro.autores[0].sobrenome = self.lineEdit_livro_sobrenome_p_autor.text()
         livro.autores[0].nome = self.lineEdit_livro_nome_p_autor.text()
+        livro.add_autor(Autor())
         if self.lineEdit_livro_sobrenome_s_autor.text() != '':
-            livro.add_autor(Autor())
             livro.autores[1].sobrenome = self.lineEdit_livro_sobrenome_s_autor.text()
             livro.autores[1].nome = self.lineEdit_livro_nome_s_autor.text()
+        livro.add_autor(Autor())
         if self.lineEdit_livro_sobrenome_t_autor.text() != '':
-            livro.add_autor(Autor())
             livro.autores[2].sobrenome = self.lineEdit_livro_sobrenome_t_autor.text()
             livro.autores[2].nome = self.lineEdit_livro_nome_t_autor.text()
         if self.radioButton_livro_quant_autores_1.isChecked():
@@ -150,19 +157,30 @@ class Principal(Ui_MainWindow, QMainWindow):
         livro.isbn = self.lineEdit_livro_isbn.text()
         livro.site = self.lineEdit_livro_site.text()
         livro.acesso = self.lineEdit_livro_acesso.text()
+        indice = self.tableWidget_lista_livros.currentRow()
         if len(livro.msg_validacao) != 0:
             self.label_livro_msg.setText(livro.msg_validacao)
             self.label_livro_msg.setStyleSheet(self.cor_erro)
             self.frame_livro_msg.show()
         else:
-            msg = self.controle_livro.add_livro(livro)
-            self.label_livro_msg.setText(msg)
-            self.label_livro_msg.setStyleSheet(self.cor_sucesso)
-            self.frame_livro_msg.show()
-            self.label_livro_referencia.setText(livro.gerar_referencia_html())
-            self.listar_livros_tabela()
+            if indice >= 0:
+                msg = self.controle_livro.alterar_livro(indice, livro)
+                self.label_livro_msg.setText(msg)
+                self.label_livro_msg.setStyleSheet(self.cor_sucesso)
+                self.frame_livro_msg.show()
+                self.label_livro_referencia.setText(livro.gerar_referencia_html())
+                self.tabelar_livros()
+                self.limpar_livro()
+            else:
+                msg = self.controle_livro.add_livro(livro)
+                self.label_livro_msg.setText(msg)
+                self.label_livro_msg.setStyleSheet(self.cor_sucesso)
+                self.frame_livro_msg.show()
+                self.label_livro_referencia.setText(livro.gerar_referencia_html())
+                self.tabelar_livros()
+                self.limpar_livro()
 
-    def listar_livros_tabela(self) -> None:
+    def tabelar_livros(self) -> None:
         cont_linhas = 0
         self.tableWidget_lista_livros.clearContents()
         self.tableWidget_lista_livros.setRowCount(len(self.controle_livro.lista_livros))
@@ -188,9 +206,55 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.tableWidget_lista_livros.setItem(cont_linhas, 16, QTableWidgetItem(livro.isbn))
             self.tableWidget_lista_livros.setItem(cont_linhas, 17, QTableWidgetItem(livro.site))
             self.tableWidget_lista_livros.setItem(cont_linhas, 18, QTableWidgetItem(livro.acesso))
-            self.tableWidget_lista_livros.setItem(cont_linhas, 19, QTableWidgetItem(livro.gerar_referencia_html()))
+            self.tableWidget_lista_livros.setItem(cont_linhas, 19, QTableWidgetItem(livro.referencia))
             cont_linhas += 1
 
+    def alterar_dados_livro(self):
+        indice = self.tableWidget_lista_livros.currentRow()
+        if indice >= 0:
+            livro = self.controle_livro.consultar_livro(indice)
+            self.lineEdit_livro_sobrenome_p_autor.setText(livro.autores[0].sobrenome)
+            self.lineEdit_livro_nome_p_autor.setText(livro.autores[0].nome)
+            self.lineEdit_livro_sobrenome_s_autor.setText(livro.autores[1].sobrenome)
+            self.lineEdit_livro_nome_s_autor.setText(livro.autores[1].nome)
+            self.lineEdit_livro_sobrenome_t_autor.setText(livro.autores[2].sobrenome)
+            self.lineEdit_livro_nome_t_autor.setText(livro.autores[2].nome)
+            if livro.quant_autores == '1 a 3 autores':
+                self.radioButton_livro_quant_autores_1.setAutoExclusive(False)
+                self.radioButton_livro_quant_autores_1.setChecked(True)
+                self.radioButton_livro_quant_autores_1.setAutoExclusive(True)
+            else:
+                self.radioButton_livro_quant_autores_2.setAutoExclusive(False)
+                self.radioButton_livro_quant_autores_2.setChecked(True)
+                self.radioButton_livro_quant_autores_2.setAutoExclusive(True)    
+            self.lineEdit_livro_titulo.setText(livro.titulo_publicacao)
+            self.lineEdit_livro_subtitulo.setText(livro.subtitulo_publicacao)
+            self.lineEdit_livro_edicao.setText(livro.edicao)
+            self.lineEdit_livro_tradutores.setText(livro.tradutores)
+            self.lineEdit_livro_local.setText(livro.local_publicacao)
+            self.lineEdit_livro_editora.setText(livro.editora)
+            self.lineEdit_livro_ano.setText(livro.ano_publicacao)
+            self.lineEdit_livro_total_paginas.setText(livro.total_paginas)
+            self.lineEdit_livro_titulo_original.setText(livro.titulo_original)
+            self.lineEdit_livro_colecao.setText(livro.colecao)
+            self.lineEdit_livro_colecao_volume.setText(livro.volume)
+            if livro.versao == 'Físico':
+                i = 1
+            elif livro.versao == 'E-book':
+                i = 2
+            else:
+                i = 0
+            self.comboBox_livro_versao.setCurrentIndex(i)
+            self.lineEdit_livro_isbn.setText(livro.isbn)
+            self.lineEdit_livro_site.setText(livro.site)
+            self.lineEdit_livro_acesso.setText(livro.acesso)
+            self.acessar_livro()
+        else:
+            msg = 'Por favor, selecione a linha do livro que deseja alterar'
+            self.label_lista_msg.setText(msg)
+            self.label_lista_msg.setStyleSheet(self.cor_erro)
+            self.frame_lista_msg.show()
+              
     def excluir_livro(self) -> None:
         indice = self.tableWidget_lista_livros.currentRow()
         if indice >= 0:
@@ -199,13 +263,14 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.label_lista_msg.setText(msg)
             self.label_lista_msg.setStyleSheet(self.cor_sucesso)
             self.frame_lista_msg.show()
+            self.tableWidget_lista_livros.clearSelection()
         else:
             msg = 'Por favor, selecione a linha do livro que deseja excluir'
             self.label_lista_msg.setText(msg)
             self.label_lista_msg.setStyleSheet(self.cor_erro)
             self.frame_lista_msg.show()
     
-    def novo_livro(self) -> None:
+    def limpar_livro(self) -> None:
         componentes = [
             self.lineEdit_livro_sobrenome_p_autor,
             self.lineEdit_livro_nome_p_autor,
@@ -232,9 +297,8 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.lineEdit_livro_acesso
         ]
         self.frame_livro_msg.hide()
-        self.label_livro_referencia.setText('Referência')
+        #self.label_livro_referencia.setText('Referência')
         self.__limpar_componentes(componentes)
-        self.acessar_livro()
     
     def exibir_referencia_livro(self) -> None:
         linha = self.tableWidget_lista_livros.currentRow()
@@ -255,12 +319,12 @@ class Principal(Ui_MainWindow, QMainWindow):
         artigo.add_autor(Autor())
         artigo.autores[0].sobrenome = self.lineEdit_artigo_sobrenome_p_autor.text()
         artigo.autores[0].nome = self.lineEdit_artigo_nome_p_autor.text()
+        artigo.add_autor(Autor())
         if self.lineEdit_artigo_sobrenome_s_autor.text() != '':
-            artigo.add_autor(Autor())
             artigo.autores[1].sobrenome = self.lineEdit_artigo_sobrenome_s_autor.text()
             artigo.autores[1].nome = self.lineEdit_artigo_nome_s_autor.text()
+        artigo.add_autor(Autor())
         if self.lineEdit_artigo_sobrenome_t_autor.text() != '':
-            artigo.add_autor(Autor())
             artigo.autores[2].sobrenome = self.lineEdit_artigo_sobrenome_t_autor.text()
             artigo.autores[2].nome = self.lineEdit_artigo_nome_t_autor.text()
         if self.radioButton_artigo_quant_autores_1.isChecked():
@@ -396,8 +460,8 @@ class Principal(Ui_MainWindow, QMainWindow):
         tese.add_autor(Autor())
         tese.autores[0].sobrenome = self.lineEdit_tese_sobrenome_p_autor.text()
         tese.autores[0].nome = self.lineEdit_tese_nome_p_autor.text()
+        tese.add_autor(Autor())
         if self.lineEdit_tese_sobrenome_s_autor.text() !=  '':
-            tese.add_autor(Autor())
             tese.autores[1].sobrenome = self.lineEdit_tese_sobrenome_s_autor.text()
             tese.autores[1].nome = self.lineEdit_tese_nome_s_autor.text()
         tese.titulo_publicacao = self.lineEdit_tese_titulo.text()
