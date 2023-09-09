@@ -18,6 +18,7 @@ class Artigo(ReferenciaBibliografica):
         self.__periodo:str = ''
         self.__issn:str = ''
         self.__doi:str = ''
+        self.__referencia:str = ''
     
     def gerar_referencia_html(self) -> str:
         '''
@@ -60,6 +61,7 @@ class Artigo(ReferenciaBibliografica):
             if dado == '':
                 continue
             html_referencia += dado
+        self.__referencia = html_referencia
         return html_referencia
      
     @property
@@ -187,3 +189,11 @@ class Artigo(ReferenciaBibliografica):
     def doi(self, doi:str) -> None:
         if len(doi) != 0:
             self.__doi = doi
+    
+    @property
+    def referencia(self):
+        return self.__referencia
+    
+    @referencia.setter
+    def referencia(self, referencia):
+        pass

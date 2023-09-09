@@ -15,6 +15,7 @@ class Tese(ReferenciaBibliografica):
         self.__grau_academico:str = ''
         self.__instituto:str = ''
         self.__universidade:str = ''
+        self.__referencia:str = ''
         
     def gerar_referencia_html(self) -> str:
         '''
@@ -47,6 +48,7 @@ class Tese(ReferenciaBibliografica):
             if dado == '':
                 continue
             html_referencia += dado
+        self.__referencia = html_referencia
         return html_referencia
 
     @property
@@ -140,3 +142,11 @@ class Tese(ReferenciaBibliografica):
             self.__universidade = universidade
         else:
             self.msg_validacao = 'O campo "Universidade" é obrigatório'
+    
+    @property
+    def referencia(self) -> str:
+        return self.__referencia
+    
+    @referencia.setter
+    def referencia(self, referencia) -> None:
+        pass

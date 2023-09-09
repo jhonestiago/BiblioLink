@@ -91,16 +91,16 @@ class Principal(Ui_MainWindow, QMainWindow):
         
         #Componentes da tela: Lista(Artigos)
         self.pushButton_lista_artigos_exibir.clicked.connect(self.exibir_referencia_artigo)
-        #self.pushButton_lista_artigos_alterar
+        self.pushButton_lista_artigos_alterar.clicked.connect(self.alterar_dados_artigo)
         self.pushButton_lista_artigos_excluir.clicked.connect(self.excluir_artigo)
-        #self.pushButton_lista_artigos_novo.clicked.connect(self.novo_artigo)
+        self.pushButton_lista_artigos_novo.clicked.connect(self.acessar_artigo)
         self.pushButton_lista_artigos_home.clicked.connect(self.acessar_home)
 
         #Componentes da tela: Lista(Teses)
         self.pushButton_lista_teses_exibir.clicked.connect(self.exibir_referencia_tese)
-        #self.pushButton_lista_teses_alterar
+        self.pushButton_lista_teses_alterar.clicked.connect(self.alterar_dados_tese)
         self.pushButton_lista_teses_excluir.clicked.connect(self.excluir_tese)
-        #self.pushButton_lista_teses_novo.clicked.connect(self.nova_tese)
+        self.pushButton_lista_teses_novo.clicked.connect(self.acessar_tese)
         self.pushButton_lista_teses_home.clicked.connect(self.acessar_home)
 
         #Componentes da tela: cadastro de usuário
@@ -126,6 +126,7 @@ class Principal(Ui_MainWindow, QMainWindow):
     # Métodos (Livro)
 
     def salvar_livro(self) -> None:
+        indice = self.tableWidget_lista_livros.currentRow()
         livro = Livro()
         livro.add_autor(Autor())
         livro.autores[0].sobrenome = self.lineEdit_livro_sobrenome_p_autor.text()
@@ -157,7 +158,6 @@ class Principal(Ui_MainWindow, QMainWindow):
         livro.isbn = self.lineEdit_livro_isbn.text()
         livro.site = self.lineEdit_livro_site.text()
         livro.acesso = self.lineEdit_livro_acesso.text()
-        indice = self.tableWidget_lista_livros.currentRow()
         if len(livro.msg_validacao) != 0:
             self.label_livro_msg.setText(livro.msg_validacao)
             self.label_livro_msg.setStyleSheet(self.cor_erro)
@@ -171,6 +171,7 @@ class Principal(Ui_MainWindow, QMainWindow):
                 self.label_livro_referencia.setText(livro.gerar_referencia_html())
                 self.tabelar_livros()
                 self.limpar_livro()
+                self.tableWidget_lista_livros.clearSelection()
             else:
                 msg = self.controle_livro.add_livro(livro)
                 self.label_livro_msg.setText(msg)
@@ -297,7 +298,6 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.lineEdit_livro_acesso
         ]
         self.frame_livro_msg.hide()
-        #self.label_livro_referencia.setText('Referência')
         self.__limpar_componentes(componentes)
     
     def exibir_referencia_livro(self) -> None:
@@ -315,6 +315,7 @@ class Principal(Ui_MainWindow, QMainWindow):
     # Métodos (Artigo)
 
     def salvar_artigo(self) -> None:
+        indice = self.tableWidget_lista_artigos.currentRow()
         artigo = Artigo()
         artigo.add_autor(Autor())
         artigo.autores[0].sobrenome = self.lineEdit_artigo_sobrenome_p_autor.text()
@@ -354,14 +355,25 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.label_artigo_msg.setStyleSheet(self.cor_erro)
             self.frame_artigo_msg.show()
         else:
-            msg = self.controle_artigo.add_artigo(artigo)
-            self.label_artigo_msg.setText(msg)
-            self.label_artigo_msg.setStyleSheet(self.cor_sucesso)
-            self.frame_artigo_msg.show()
-            self.label_artigo_referencia.setText(artigo.gerar_referencia_html())
-            self.listar_artigos_tabela()
+            if indice >= 0:
+                msg = self.controle_artigo.alterar_artigo(indice, artigo)
+                self.label_artigo_msg.setText(msg)
+                self.label_artigo_msg.setStyleSheet(self.cor_sucesso)
+                self.frame_artigo_msg.show()
+                self.label_artigo_referencia.setText(artigo.gerar_referencia_html())
+                self.tabelar_artigos()
+                self.limpar_artigo()
+                self.tableWidget_lista_artigos.clearSelection()
+            else:
+                msg = self.controle_artigo.add_artigo(artigo)
+                self.label_artigo_msg.setText(msg)
+                self.label_artigo_msg.setStyleSheet(self.cor_sucesso)
+                self.frame_artigo_msg.show()
+                self.label_artigo_referencia.setText(artigo.gerar_referencia_html())
+                self.tabelar_artigos()
+                self.limpar_artigo()
 
-    def listar_artigos_tabela(self) -> None:
+    def tabelar_artigos(self) -> None:
         cont_linhas = 0
         self.tableWidget_lista_artigos.clearContents()
         self.tableWidget_lista_artigos.setRowCount(len(self.controle_artigo.lista_artigos))
@@ -390,8 +402,57 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.tableWidget_lista_artigos.setItem(cont_linhas, 19, QTableWidgetItem(artigo.doi))
             self.tableWidget_lista_artigos.setItem(cont_linhas, 20, QTableWidgetItem(artigo.site))
             self.tableWidget_lista_artigos.setItem(cont_linhas, 21, QTableWidgetItem(artigo.acesso))
-            self.tableWidget_lista_artigos.setItem(cont_linhas, 22, QTableWidgetItem(artigo.gerar_referencia_html()))
+            self.tableWidget_lista_artigos.setItem(cont_linhas, 22, QTableWidgetItem(artigo.referencia))
             cont_linhas += 1
+
+    def alterar_dados_artigo(self) -> None:
+        indice = self.tableWidget_lista_artigos.currentRow()
+        if indice >= 0:
+            artigo = self.controle_artigo.consultar_artigo(indice)
+            self.lineEdit_artigo_sobrenome_p_autor.setText(artigo.autores[0].sobrenome)
+            self.lineEdit_artigo_nome_p_autor.setText(artigo.autores[0].nome)
+            self.lineEdit_artigo_sobrenome_s_autor.setText(artigo.autores[1].sobrenome)
+            self.lineEdit_artigo_nome_s_autor.setText(artigo.autores[1].nome)
+            self.lineEdit_artigo_sobrenome_t_autor.setText(artigo.autores[2].sobrenome)
+            self.lineEdit_artigo_nome_t_autor.setText(artigo.autores[2].nome)
+            if artigo.quant_autores == '1 a 3 autores':
+                self.radioButton_artigo_quant_autores_1.setAutoExclusive(False)
+                self.radioButton_artigo_quant_autores_1.setChecked(True)
+                self.radioButton_artigo_quant_autores_1.setAutoExclusive(True)
+            else:
+                self.radioButton_artigo_quant_autores_2.setAutoExclusive(False)
+                self.radioButton_artigo_quant_autores_2.setChecked(True)
+                self.radioButton_artigo_quant_autores_2.setAutoExclusive(True)
+            self.lineEdit_artigo_titulo.setText(artigo.titulo_publicacao)
+            self.lineEdit_artigo_subtitulo.setText(artigo.subtitulo_publicacao)
+            self.lineEdit_artigo_periodico_titulo.setText(artigo.titulo_periodico)
+            self.lineEdit_artigo_periodico_subtitulo.setText(artigo.subtitulo_periodico)
+            self.lineEdit_artigo_local.setText(artigo.local_publicacao)
+            self.lineEdit_artigo_num_ano.setText(artigo.ano_periodico)
+            self.lineEdit_artigo_volume.setText(artigo.volume)
+            self.lineEdit_artigo_numero.setText(artigo.numero)
+            self.lineEdit_artigo_edicao.setText(artigo.edicao)
+            self.lineEdit_artigo_tomo.setText(artigo.tomo)
+            self.lineEdit_artigo_paginas.setText(artigo.paginas)
+            self.lineEdit_artigo_periodo.setText(artigo.periodo)
+            self.lineEdit_artigo_ano.setText(artigo.ano_publicacao)
+            self.lineEdit_artigo_issn.setText(artigo.issn)
+            if artigo.versao == 'Físico':
+                i = 1
+            elif artigo.versao == 'Online':
+                i = 2
+            else:
+                i = 0
+            self.comboBox_artigo_versao.setCurrentIndex(i)
+            self.lineEdit_artigo_doi.setText(artigo.doi)
+            self.lineEdit_artigo_site.setText(artigo.site)
+            self.lineEdit_artigo_acesso.setText(artigo.acesso)
+            self.acessar_artigo()
+        else:
+            msg = 'Por favor, selecione a linha do artigo que deseja alterar'
+            self.label_lista_msg.setText(msg)
+            self.label_lista_msg.setStyleSheet(self.cor_erro)
+            self.frame_lista_msg.show()
 
     def excluir_artigo(self) -> None:
         indice = self.tableWidget_lista_artigos.currentRow()
@@ -401,13 +462,14 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.label_lista_msg.setText(msg)
             self.label_lista_msg.setStyleSheet(self.cor_sucesso)
             self.frame_lista_msg.show()
+            self.tableWidget_lista_artigos.clearSelection()
         else:
             msg = 'Por favor, selecione a linha do artigo que deseja excluir'
             self.label_lista_msg.setText(msg)
             self.label_lista_msg.setStyleSheet(self.cor_erro)
             self.frame_lista_msg.show()
     
-    def novo_artigo(self) -> None:
+    def limpar_artigo(self) -> None:
         componentes = [
             self.lineEdit_artigo_sobrenome_p_autor,
             self.lineEdit_artigo_nome_p_autor,
@@ -437,9 +499,7 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.lineEdit_artigo_acesso
         ]
         self.frame_artigo_msg.hide()
-        self.label_artigo_referencia.setText('Referência')
         self.__limpar_componentes(componentes)
-        self.acessar_artigo()
 
     def exibir_referencia_artigo(self) -> None:
         linha = self.tableWidget_lista_artigos.currentRow()
@@ -456,6 +516,7 @@ class Principal(Ui_MainWindow, QMainWindow):
     # Métodos (Tese)
 
     def salvar_tese(self) -> None:
+        indice = self.tableWidget_lista_teses.currentRow()
         tese = Tese()
         tese.add_autor(Autor())
         tese.autores[0].sobrenome = self.lineEdit_tese_sobrenome_p_autor.text()
@@ -483,14 +544,25 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.label_tese_msg.setStyleSheet(self.cor_erro)
             self.frame_tese_msg.show()
         else:
-            msg = self.controle_tese.add_tese(tese)
-            self.label_tese_msg.setText(msg)
-            self.label_tese_msg.setStyleSheet(self.cor_sucesso)
-            self.frame_tese_msg.show()
-            self.label_tese_referencia.setText(tese.gerar_referencia_html())
-            self.listar_teses_tabela()
+            if indice >= 0:
+                msg = self.controle_tese.alterar_tese(indice, tese)
+                self.label_tese_msg.setText(msg)
+                self.label_tese_msg.setStyleSheet(self.cor_sucesso)
+                self.frame_tese_msg.show()
+                self.label_tese_referencia.setText(tese.gerar_referencia_html())
+                self.tabelar_teses()
+                self.limpar_tese()
+                self.tableWidget_lista_teses.clearSelection()
+            else:
+                msg = self.controle_tese.add_tese(tese)
+                self.label_tese_msg.setText(msg)
+                self.label_tese_msg.setStyleSheet(self.cor_sucesso)
+                self.frame_tese_msg.show()
+                self.label_tese_referencia.setText(tese.gerar_referencia_html())
+                self.tabelar_teses()
+                self.limpar_tese()
 
-    def listar_teses_tabela(self) -> None:
+    def tabelar_teses(self) -> None:
         cont_linhas = 0
         self.tableWidget_lista_teses.clearContents()
         self.tableWidget_lista_teses.setRowCount(len(self.controle_tese.lista_teses))
@@ -512,8 +584,51 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.tableWidget_lista_teses.setItem(cont_linhas, 13, QTableWidgetItem(tese.versao))
             self.tableWidget_lista_teses.setItem(cont_linhas, 14, QTableWidgetItem(tese.site))
             self.tableWidget_lista_teses.setItem(cont_linhas, 15, QTableWidgetItem(tese.acesso))
-            self.tableWidget_lista_teses.setItem(cont_linhas, 16, QTableWidgetItem(tese.gerar_referencia_html()))
+            self.tableWidget_lista_teses.setItem(cont_linhas, 16, QTableWidgetItem(tese.referencia))
             cont_linhas += 1
+
+    def alterar_dados_tese(self):
+        indice = self.tableWidget_lista_teses.currentRow()
+        if indice >= 0:
+            tese = self.controle_tese.consultar_tese(indice)
+            self.lineEdit_tese_sobrenome_p_autor.setText(tese.autores[0].sobrenome)
+            self.lineEdit_tese_nome_p_autor.setText(tese.autores[0].nome)
+            self.lineEdit_tese_sobrenome_s_autor.setText(tese.autores[1].sobrenome)
+            self.lineEdit_tese_nome_s_autor.setText(tese.autores[1].nome)
+            self.lineEdit_tese_titulo.setText(tese.titulo_publicacao)
+            self.lineEdit_tese_subtitulo.setText(tese.subtitulo_publicacao)
+            self.lineEdit_tese_orientador.setText(tese.orientador)
+            self.lineEdit_tese_ano_deposito.setText(tese.ano_deposito)
+            self.lineEdit_tese_total_folhas.setText(tese.total_folhas)
+            if tese.tipo_trabalho == 'Tese':
+                i = 1
+            elif tese.tipo_trabalho == 'Dissetação':
+                i = 2
+            elif tese.tipo_trabalho == 'Trabalho de Conclusão de Curso':
+                i = 3
+            else:
+                i = 0
+            self.comboBox_tese_tipo_trabalho.setCurrentIndex(i)
+            self.lineEdit_tese_grau.setText(tese.grau_academico)
+            self.lineEdit_tese_instituto.setText(tese.instituto)
+            self.lineEdit_tese_universidade.setText(tese.universidade)
+            self.lineEdit_tese_local_defesa.setText(tese.local_publicacao)
+            self.lineEdit_tese_ano_defesa.setText(tese.ano_publicacao)
+            if tese.versao == 'Físico':
+                j = 1
+            elif tese.versao == 'Digital':
+                j = 2
+            else:
+                j = 0
+            self.comboBox_tese_versao.setCurrentIndex(j)
+            self.lineEdit_tese_site.setText(tese.site)
+            self.lineEdit_tese_acesso.setText(tese.acesso)
+            self.acessar_tese()
+        else:
+            msg = 'Por favor, selecione a linha da Tese que deseja alterar'
+            self.label_lista_msg.setText(msg)
+            self.label_lista_msg.setStyleSheet(self.cor_erro)
+            self.frame_lista_msg.show()
     
     def excluir_tese(self) -> None:
         indice = self.tableWidget_lista_teses.currentRow()
@@ -523,13 +638,14 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.label_lista_msg.setText(msg)
             self.label_lista_msg.setStyleSheet(self.cor_sucesso)
             self.frame_lista_msg.show()
+            self.tableWidget_lista_teses.clearSelection()
         else:
             msg = 'Por favor, selecione a linha do trabalho que deseja excluir'
             self.label_lista_msg.setText(msg)
             self.label_lista_msg.setStyleSheet(self.cor_erro)
             self.frame_lista_msg.show()
 
-    def nova_tese(self) -> None:
+    def limpar_tese(self) -> None:
         componentes = [
             self.lineEdit_tese_sobrenome_p_autor,
             self.lineEdit_tese_nome_p_autor,
@@ -551,9 +667,7 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.lineEdit_tese_acesso
         ]
         self.frame_tese_msg.hide()
-        self.label_tese_referencia.setText('Referência')
         self.__limpar_componentes(componentes)
-        self.acessar_tese()
 
     def exibir_referencia_tese(self) -> None:
         linha = self.tableWidget_lista_teses.currentRow()

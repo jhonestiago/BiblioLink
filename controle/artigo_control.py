@@ -16,6 +16,20 @@ class ArtigoControl:
         self.__lista_artigos.append(artigo)
         return 'Artigo salvo com sucesso'
     
+    def consultar_artigo(self, indice:int):
+        '''
+        Retorna um artigo da lista_artigos
+        '''
+        artigo = self.__lista_artigos[indice]
+        return artigo
+    
+    def alterar_artigo(self, indice:int, artigo:Artigo):
+        '''
+        Altera um artigo da lista_artigos
+        '''
+        self.__lista_artigos[indice] = artigo
+        return 'Artigo exlcuído com sucesso'
+    
     def excluir_artigo(self, indice: int) -> str:
         '''
         Exclui um objeto Artigo em lista_artigos

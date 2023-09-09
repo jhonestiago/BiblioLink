@@ -16,6 +16,20 @@ class TeseControl:
         self.__lista_teses.append(tese)
         return 'Tese salva com sucesso'
     
+    def consultar_tese(self, indice:int):
+        '''
+        Retorna uma tesa da lista_teses
+        '''
+        tese = self.__lista_teses[indice]
+        return tese
+    
+    def alterar_tese(self, indice:int, tese:Tese):
+        '''
+        Altera uma tese da lista_teses
+        '''
+        self.__lista_teses[indice] = tese
+        return 'Tese alterada com sucesso'
+    
     def excluir_tese(self, indice: int) -> str:
         '''
         Exclui um objeto Tese em lista_teses
