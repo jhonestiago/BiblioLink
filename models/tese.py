@@ -1,11 +1,11 @@
 import numpy as np
-from entidades.referencia_bibliografica import ReferenciaBibliografica
+from models.referencia_bibliografica import ReferenciaBibliografica
 
 class Tese(ReferenciaBibliografica):
     '''
     Cria o objeto Tese
     '''
-    
+
     def __init__(self) -> None:
         super().__init__()
         self.__orientador:str = ''
@@ -16,7 +16,7 @@ class Tese(ReferenciaBibliografica):
         self.__instituto:str = ''
         self.__universidade:str = ''
         self.__referencia:str = ''
-        
+
     def gerar_referencia_html(self) -> str:
         '''
         Retorna a referência em formato html
@@ -57,96 +57,103 @@ class Tese(ReferenciaBibliografica):
         Retorna a propriedade "Orientador"
         '''
         return self.__orientador
-    
+
     @orientador.setter
     def orientador(self, orientador:str) -> None:
         if len(orientador) != 0:
             self.__orientador = orientador
-    
+
     @property
     def ano_deposito(self) -> str:
         '''
         Retorna a propriedade "Ano (Deposito)"
         '''
         return self.__ano_deposito
-        
+
     @ano_deposito.setter
     def ano_deposito(self, ano_deposito:str) -> None:
         if len(ano_deposito) != 0:
             self.__ano_deposito = ano_deposito
+            self.msg_validacao = ''
         else:
             self.msg_validacao = 'O campo "Ano (Deposito)" é obrigatório'
-    
+
     @property
     def total_folhas(self) -> str:
         '''
         Retorna a propriedade "Total de Folhas"
         '''
         return self.__total_folhas
-    
+
     @total_folhas.setter
     def total_folhas(self, total_folhas:str) -> None:
         if len(total_folhas) != 0:
             self.__total_folhas = total_folhas
-    
+
     @property
     def tipo_trabalho(self) -> str:
         '''
         Retorna a propriedade "Tipo de Trabalho"
         '''
         return self.__tipo_trabalho
-    
+
     @tipo_trabalho.setter
     def tipo_trabalho(self, tipo_trabalho:str) -> None:
         if len(tipo_trabalho) != 0:
             self.__tipo_trabalho = tipo_trabalho
+            self.msg_validacao = ''
         else:
             self.msg_validacao = 'O campo "Tipo de Trabalho" é obrigatório'
-    
+
     @property
     def grau_academico(self) -> str:
         '''
         Retorna a propriedade "Grau Acadêmico"
         '''
         return self.__grau_academico
-    
+
     @grau_academico.setter
     def grau_academico(self, grau:str) -> None:
         if len(grau) != 0:
             self.__grau_academico = grau
+            self.msg_validacao = ''
         else:
             self.msg_validacao = 'O campo "Grau Acadêmico" é obrigatório'
-    
+
     @property
     def instituto(self) -> str:
         '''
         Retorna a propriedade "Instituto"
         '''
         return self.__instituto
-    
+
     @instituto.setter
     def instituto(self, instituto:str) -> None:
         if len(instituto) != 0:
             self.__instituto = instituto
-    
+
     @property
     def universidade(self) -> str:
         '''
         Retorna a propriedade "Universidade"
         '''
         return self.__universidade
-    
+
     @universidade.setter
     def universidade(self, universidade:str) -> None:
         if len(universidade) != 0:
             self.__universidade = universidade
+            self.msg_validacao = ''
         else:
             self.msg_validacao = 'O campo "Universidade" é obrigatório'
-    
+
     @property
     def referencia(self) -> str:
+        '''
+        Retorna a propriedade referencia
+        '''
         return self.__referencia
-    
+
     @referencia.setter
-    def referencia(self, referencia) -> None:
+    def referencia(self, referencia:str) -> None:
         pass

@@ -1,1 +1,0 @@
-__all__ = ['autor', 'referencia_bibliografica', 'livro', 'artigo', 'tese']

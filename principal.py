@@ -1,23 +1,32 @@
+'''
+Módulo principal do aplicativo BiblioLink.
+
+Este módulo contém a lógica principal do aplicativo BiblioLink, 
+incluindo a inicialização e execução da interface gráfica do usuário.
+'''
+
 import sys
-
 from gui_principal import Ui_MainWindow
-
-from PyQt6.QtWidgets import QMainWindow, QApplication, QTableWidgetItem, QLineEdit, QRadioButton, QComboBox
+from PyQt6.QtWidgets import QMainWindow, QApplication 
+from PyQt6.QtWidgets import QTableWidgetItem, QLineEdit, QRadioButton, QComboBox
 from PyQt6.QtGui import QPixmap, QIcon
 from PyQt6.QtCore import Qt
 
-from entidades.livro import Livro
-from entidades.autor import Autor
-from entidades.artigo import Artigo
-from entidades.tese import Tese
-from entidades.usuario import Usuario
+from models.livro import Livro
+from models.autor import Autor
+from models.artigo import Artigo
+from models.tese import Tese
+from models.usuario import Usuario
 
-from controle.livro_control import LivroControl
-from controle.artigo_control import ArtigoControl
-from controle.tese_control import TeseControl
-from controle.usuario_control import UsuarioControl
+from controllers.livro_control import LivroControl
+from controllers.artigo_control import ArtigoControl
+from controllers.tese_control import TeseControl
+from controllers.usuario_control import UsuarioControl
 
 class Principal(Ui_MainWindow, QMainWindow):
+    '''
+    Cria a classe Principal
+    '''
 
     def __init__(self, parent = None) -> None:
         super().__init__(parent)
@@ -32,13 +41,17 @@ class Principal(Ui_MainWindow, QMainWindow):
         self.cor_erro = 'background-color: rgb(204, 41, 54); color: rgb(255, 255, 255)'
 
     def init_components(self) -> None:
+        '''
+        Inicializa os componentes das páginas:
+        Login, Home, Livro, Artigo, Tese,
+        Lista e Cadastro
+        '''
         #Componentes da tela de Login
         self.frame_login_msg.hide()
         self.label_login_icone.setPixmap(QPixmap('img/icon_user'))
         self.pushButton_login_entrar.clicked.connect(self.realizar_login)
         self.pushButton_login_cadastrar.clicked.connect(self.acessar_cadastro)
         self.pushButton_login_fechar_msg.clicked.connect(lambda: self.frame_login_msg.hide())
-
 
         #Componentes da tela: Home
         self.label_home_logo.setPixmap(QPixmap('img/logo.png'))
@@ -89,14 +102,14 @@ class Principal(Ui_MainWindow, QMainWindow):
         self.pushButton_lista_fechar_msg.clicked.connect(lambda: self.frame_lista_msg.hide())
         self.pushButton_lista_limpar_referencia.setIcon(QIcon('img/icon_limpar.png'))
         self.pushButton_lista_limpar_referencia.clicked.connect(lambda: self.label_lista_referencia.setText('Referência'))
-        
+
         #Componentes da tela: Lista(Livros)
         self.pushButton_lista_livros_exibir.clicked.connect(self.exibir_referencia_livro)
         self.pushButton_lista_livros_alterar.clicked.connect(self.alterar_dados_livro)
         self.pushButton_lista_livros_excluir.clicked.connect(self.excluir_livro)
         self.pushButton_lista_livros_novo.clicked.connect(self.acessar_livro)
         self.pushButton_lista_livros_home.clicked.connect(self.acessar_home)
-        
+
         #Componentes da tela: Lista(Artigos)
         self.pushButton_lista_artigos_exibir.clicked.connect(self.exibir_referencia_artigo)
         self.pushButton_lista_artigos_alterar.clicked.connect(self.alterar_dados_artigo)
@@ -116,16 +129,23 @@ class Principal(Ui_MainWindow, QMainWindow):
         self.label_icon_cadastro.setPixmap(QPixmap('img/icon_user'))
         self.pushButton_cadastro_cadastrar.clicked.connect(self.cadastrar_usuario)
         self.pushButton_cadastro_fechar_msg.clicked.connect(lambda: self.frame_cadastro_msg.hide())
-    
-    def init_usuario(self):
+
+    def init_usuario(self) -> None:
+        '''
+        Inicializa o user "admin"
+        '''
         usuario_sistema = Usuario()
         usuario_sistema.nome = 'Sistema'
         usuario_sistema.user = 'admin'
         usuario_sistema.senha = '12345'
         usuario_sistema.senha_conf = '12345'
         self.controle_usuario.add_usuario(usuario_sistema)
-    
+
     def realizar_login(self) -> None:
+        '''
+        Acessa a plataforma BiblioLink
+        e faz a validação de usuário
+        '''
         user = self.lineEdit_login_usuario.text()
         senha = self.lineEdit_login_senha.text()
         if self.controle_usuario.consultar_usuario(user, senha):
@@ -138,7 +158,7 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.label_login_msg.setText('Usuário ou senha incorretos!!!')
             self.label_login_msg.setStyleSheet(self.cor_erro)
             self.frame_login_msg.show()
-    
+
     # Métodos (Livro)
 
     def salvar_livro(self) -> None:
@@ -271,7 +291,7 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.label_lista_msg.setText(msg)
             self.label_lista_msg.setStyleSheet(self.cor_erro)
             self.frame_lista_msg.show()
-              
+
     def excluir_livro(self) -> None:
         indice = self.tableWidget_lista_livros.currentRow()
         if indice >= 0:
@@ -286,7 +306,7 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.label_lista_msg.setText(msg)
             self.label_lista_msg.setStyleSheet(self.cor_erro)
             self.frame_lista_msg.show()
-    
+
     def limpar_livro(self) -> None:
         componentes = [
             self.lineEdit_livro_sobrenome_p_autor,
@@ -315,7 +335,7 @@ class Principal(Ui_MainWindow, QMainWindow):
         ]
         self.frame_livro_msg.hide()
         self.__limpar_componentes(componentes)
-    
+
     def exibir_referencia_livro(self) -> None:
         linha = self.tableWidget_lista_livros.currentRow()
         if linha >= 0:
@@ -484,7 +504,7 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.label_lista_msg.setText(msg)
             self.label_lista_msg.setStyleSheet(self.cor_erro)
             self.frame_lista_msg.show()
-    
+
     def limpar_artigo(self) -> None:
         componentes = [
             self.lineEdit_artigo_sobrenome_p_autor,
@@ -645,7 +665,7 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.label_lista_msg.setText(msg)
             self.label_lista_msg.setStyleSheet(self.cor_erro)
             self.frame_lista_msg.show()
-    
+
     def excluir_tese(self) -> None:
         indice = self.tableWidget_lista_teses.currentRow()
         if indice >= 0:
@@ -696,9 +716,9 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.label_lista_msg.setText(msg)
             self.label_lista_msg.setStyleSheet(self.cor_erro)
             self.frame_lista_msg.show()
-    
+
     # Método (Usuário)
-    
+
     def cadastrar_usuario(self) -> None:
         usuario = Usuario()
         usuario.nome  = self.lineEdit_cadastro_nome.text()
@@ -717,7 +737,7 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.frame_cadastro_msg.show()
             self.limpar_cadastrar()
             self.sair_sistema()
-    
+
     def limpar_cadastrar(self):
         componentes = [
             self.lineEdit_cadastro_nome,
@@ -733,25 +753,25 @@ class Principal(Ui_MainWindow, QMainWindow):
 
     def acessar_livro(self) -> None:
         self.stackedWidget_sistema.setCurrentWidget(self.page_sistema_livro)
-    
+
     def acessar_artigo(self) -> None:
         self.stackedWidget_sistema.setCurrentWidget(self.page_sistema_artigo)
-    
+
     def acessar_tese(self) -> None:
         self.stackedWidget_sistema.setCurrentWidget(self.page_sistema_tese)
-    
+
     def acessar_home(self) -> None:
         self.stackedWidget_sistema.setCurrentWidget(self.page_sistema_home)
 
     def acessar_lista(self) -> None:
         self.stackedWidget_sistema.setCurrentWidget(self.page_sistema_lista)
-    
+
     def acessar_cadastro(self) -> None:
         self.stackedWidget_sistema.setCurrentWidget(self.page_sistama_cadastro)
-    
+
     def sair_sistema(self) -> None:
         self.stackedWidget_sistema.setCurrentWidget(self.page_sistema_login)
-    
+
     def __limpar_componentes(self, componentes:list) -> None:
         for componente in componentes:
             if isinstance(componente, QLineEdit):

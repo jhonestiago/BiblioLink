@@ -1,1 +1,0 @@
-__all__ = ['livro_control', 'artigo_control', 'tese_control']

@@ -1,5 +1,5 @@
 import numpy as np
-from entidades.referencia_bibliografica import ReferenciaBibliografica
+from models.referencia_bibliografica import ReferenciaBibliografica
 
 class Livro(ReferenciaBibliografica):
     '''
@@ -16,7 +16,7 @@ class Livro(ReferenciaBibliografica):
         self.__volume:str = ''
         self.__isbn:str = ''
         self.__referencia:str = ''
-    
+
     def gerar_referencia_html(self):
         '''
         Retorna a referência em formato html
@@ -45,7 +45,7 @@ class Livro(ReferenciaBibliografica):
         vetor_referencia[21] = f' Disponível em: <a href="{self.site}">{self.site}</a>.' if  self.site != '' else ''
         vetor_referencia[22] = f' Acesso em: {self.acesso}.' if self.acesso != '' else ''
         vetor_referencia[23] = '</p></body></html>'
-        
+
         if vetor_referencia[7] != '':
             for i in range(3, 7):
                 vetor_referencia[i] = ''
@@ -64,45 +64,46 @@ class Livro(ReferenciaBibliografica):
         Retorna a propriedade "Tradutores"
         '''
         return self.__tradutores
-    
+
     @tradutores.setter
     def tradutores(self, tradutores:str) -> None:
         if len(tradutores) != 0:
             self.__tradutores = tradutores
-        
+
     @property
     def editora(self) -> str:
         '''
         Retorna a propriedade "Editora"
         '''
         return self.__editora
-    
+
     @editora.setter
     def editora(self, editora:str) -> None:
         if len(editora) != 0:
             self.__editora = editora
+            self.msg_validacao = ''
         else:
             self.msg_validacao = 'O campo "Editora" é obrigatório'
-    
+
     @property
     def total_paginas(self) -> str:
         '''
         Retorna a propriedade "Total Páginas"
         '''
         return self.__total_paginas
-    
+
     @total_paginas.setter
     def total_paginas(self, total_paginas:str) -> None:
         if len(total_paginas) != 0:
             self.__total_paginas = total_paginas
-    
+
     @property
     def titulo_original(self) -> str:
         '''
         Retorna a propriedade "Titulo original"
         '''
         return self.__titulo_original
-    
+
     @titulo_original.setter
     def titulo_original(self, titulo_original:str) -> None:
         if len(titulo_original) != 0:
@@ -114,12 +115,12 @@ class Livro(ReferenciaBibliografica):
         Retorna a propriedade "ISBN"
         '''
         return self.__isbn
-    
+
     @isbn.setter
     def isbn(self, isbn:str) -> None:
         if len(isbn) != 0:
             self.__isbn = isbn
-    
+
     @property
     def colecao(self) -> str:
         '''
@@ -143,17 +144,14 @@ class Livro(ReferenciaBibliografica):
     def volume(self, volume:str) -> None:
         if len(volume) != 0:
             self.__volume = volume
-    
+
     @property
-    def referencia(self):
+    def referencia(self) -> str:
         '''
         Retorna a propriedade referencia
         '''
         return self.__referencia
-    
+
     @referencia.setter
-    def referencia(self, referencia:str):
-        if referencia != '':
-            self.__referencia = referencia
-        else:
-            self.msg_validacao = 'O campo "Referência" será mantido'
+    def referencia(self, referencia:str) -> None:
+        pass
