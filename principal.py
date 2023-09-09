@@ -1,6 +1,7 @@
 import sys
 
 from gui_principal import Ui_MainWindow
+
 from PyQt6.QtWidgets import QMainWindow, QApplication, QTableWidgetItem, QLineEdit, QRadioButton, QComboBox
 from PyQt6.QtGui import QPixmap, QIcon
 from PyQt6.QtCore import Qt
@@ -9,9 +10,12 @@ from entidades.livro import Livro
 from entidades.autor import Autor
 from entidades.artigo import Artigo
 from entidades.tese import Tese
+from entidades.usuario import Usuario
+
 from controle.livro_control import LivroControl
 from controle.artigo_control import ArtigoControl
 from controle.tese_control import TeseControl
+from controle.usuario_control import UsuarioControl
 
 class Principal(Ui_MainWindow, QMainWindow):
 
@@ -22,15 +26,19 @@ class Principal(Ui_MainWindow, QMainWindow):
         self.controle_livro = LivroControl()
         self.controle_artigo = ArtigoControl()
         self.controle_tese = TeseControl()
+        self.controle_usuario = UsuarioControl()
+        self.init_usuario()
         self.cor_sucesso = 'background-color: rgb(101, 184, 145)'
         self.cor_erro = 'background-color: rgb(204, 41, 54); color: rgb(255, 255, 255)'
 
     def init_components(self) -> None:
         #Componentes da tela de Login
         self.frame_login_msg.hide()
-        #self.label_login_icone.setPixmap(QPixmap())
+        self.label_login_icone.setPixmap(QPixmap('img/icon_user'))
         self.pushButton_login_entrar.clicked.connect(self.realizar_login)
+        self.pushButton_login_cadastrar.clicked.connect(self.acessar_cadastro)
         self.pushButton_login_fechar_msg.clicked.connect(lambda: self.frame_login_msg.hide())
+
 
         #Componentes da tela: Home
         self.label_home_logo.setPixmap(QPixmap('img/logo.png'))
@@ -105,14 +113,22 @@ class Principal(Ui_MainWindow, QMainWindow):
 
         #Componentes da tela: cadastro de usuário
         self.frame_cadastro_msg.hide()
-        #self.label_icon_cadastro.setPixmap(QPixmap())
-        #self.pushButton_cadastro_cadastrar()
+        self.label_icon_cadastro.setPixmap(QPixmap('img/icon_user'))
+        self.pushButton_cadastro_cadastrar.clicked.connect(self.cadastrar_usuario)
         self.pushButton_cadastro_fechar_msg.clicked.connect(lambda: self.frame_cadastro_msg.hide())
     
-    def realizar_login(self) -> None: # A repensar
+    def init_usuario(self):
+        usuario_sistema = Usuario()
+        usuario_sistema.nome = 'Sistema'
+        usuario_sistema.user = 'admin'
+        usuario_sistema.senha = '12345'
+        usuario_sistema.senha_conf = '12345'
+        self.controle_usuario.add_usuario(usuario_sistema)
+    
+    def realizar_login(self) -> None:
         user = self.lineEdit_login_usuario.text()
         senha = self.lineEdit_login_senha.text()
-        if user == 'admin' and senha == '12345':
+        if self.controle_usuario.consultar_usuario(user, senha):
             self.lineEdit_login_usuario.setText('')
             self.lineEdit_login_senha.setText('')
             self.frame_login_msg.hide()
@@ -681,6 +697,26 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.label_lista_msg.setStyleSheet(self.cor_erro)
             self.frame_lista_msg.show()
     
+    # Método (Usuário)
+    
+    def cadastrar_usuario(self) -> None:
+        usuario = Usuario()
+        usuario.nome  = self.lineEdit_cadastro_nome.text()
+        usuario.sobrenome = self.lineEdit_cadastro_sobrenome.text()
+        usuario.user = self.lineEdit_cadastro_usuario.text()
+        usuario.senha = self.lineEdit_cadastro_senha_1.text()
+        usuario.senha_conf = self.lineEdit_cadastro_senha_2.text()
+        if len(usuario.msg_validacao) != 0:
+            self.label_cadastro_msg.setText(usuario.msg_validacao)
+            self.label_cadastro_msg.setStyleSheet(self.cor_erro)
+            self.frame_cadastro_msg.show()
+        else:
+            msg = self.controle_usuario.add_usuario(usuario)
+            self.label_cadastro_msg.setText(msg)
+            self.label_cadastro_msg.setStyleSheet(self.cor_sucesso)
+            self.frame_cadastro_msg.show()
+            self.sair_sistema()
+
     # Métodos Gerais
 
     def acessar_livro(self) -> None:
@@ -697,6 +733,9 @@ class Principal(Ui_MainWindow, QMainWindow):
 
     def acessar_lista(self) -> None:
         self.stackedWidget_sistema.setCurrentWidget(self.page_sistema_lista)
+    
+    def acessar_cadastro(self) -> None:
+        self.stackedWidget_sistema.setCurrentWidget(self.page_sistama_cadastro)
     
     def sair_sistema(self) -> None:
         self.stackedWidget_sistema.setCurrentWidget(self.page_sistema_login)
