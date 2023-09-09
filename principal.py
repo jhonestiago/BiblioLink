@@ -715,7 +715,19 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.label_cadastro_msg.setText(msg)
             self.label_cadastro_msg.setStyleSheet(self.cor_sucesso)
             self.frame_cadastro_msg.show()
+            self.limpar_cadastrar()
             self.sair_sistema()
+    
+    def limpar_cadastrar(self):
+        componentes = [
+            self.lineEdit_cadastro_nome,
+            self.lineEdit_cadastro_sobrenome,
+            self.lineEdit_cadastro_usuario,
+            self.lineEdit_cadastro_senha_1,
+            self.lineEdit_cadastro_senha_2,
+        ]
+        self.frame_cadastro_msg.hide()
+        self.__limpar_componentes(componentes)
 
     # Métodos Gerais
 
