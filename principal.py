@@ -715,5 +715,7 @@ class Principal(Ui_MainWindow, QMainWindow):
 if __name__ == '__main__':
     qt = QApplication(sys.argv)
     principal = Principal()
+    principal.setWindowIcon(QIcon('img/logo.png'))
+    principal.setWindowTitle('BiblioLink')
     principal.show()
     qt.exec()

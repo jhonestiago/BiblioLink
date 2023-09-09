@@ -70,7 +70,7 @@ QLabel {
 }</string>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>4</number>
      </property>
      <widget class="QWidget" name="page_sistema_login">
       <widget class="QFrame" name="frame_login_principal">
@@ -2537,7 +2537,7 @@ QTableWidget {
 </string>
          </property>
          <property name="currentIndex">
-          <number>2</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="tab_lista_livros">
           <attribute name="title">
