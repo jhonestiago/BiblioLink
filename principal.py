@@ -162,6 +162,9 @@ class Principal(Ui_MainWindow, QMainWindow):
     # Métodos (Livro)
 
     def salvar_livro(self) -> None:
+        '''
+        Salva as informações da referência livro
+        '''
         indice = self.tableWidget_lista_livros.currentRow()
         livro = Livro()
         livro.add_autor(Autor())
@@ -218,6 +221,9 @@ class Principal(Ui_MainWindow, QMainWindow):
                 self.limpar_livro()
 
     def tabelar_livros(self) -> None:
+        '''
+        Atualiza as infomações da tabela de livros
+        '''
         cont_linhas = 0
         self.tableWidget_lista_livros.clearContents()
         self.tableWidget_lista_livros.setRowCount(len(self.controle_livro.lista_livros))
@@ -246,7 +252,11 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.tableWidget_lista_livros.setItem(cont_linhas, 19, QTableWidgetItem(livro.referencia))
             cont_linhas += 1
 
-    def alterar_dados_livro(self):
+    def alterar_dados_livro(self) -> None:
+        '''
+        Acessa as informações de um livro cadastrado,
+        possibilando a edição de seus dados
+        '''
         indice = self.tableWidget_lista_livros.currentRow()
         if indice >= 0:
             livro = self.controle_livro.consultar_livro(indice)
@@ -293,6 +303,9 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.frame_lista_msg.show()
 
     def excluir_livro(self) -> None:
+        '''
+        Exclui um livro cadastrado
+        '''
         indice = self.tableWidget_lista_livros.currentRow()
         if indice >= 0:
             msg = self.controle_livro.excluir_livro(indice)
@@ -308,6 +321,9 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.frame_lista_msg.show()
 
     def limpar_livro(self) -> None:
+        '''
+        Limpa os campos do formulário livro
+        '''
         componentes = [
             self.lineEdit_livro_sobrenome_p_autor,
             self.lineEdit_livro_nome_p_autor,
@@ -337,6 +353,10 @@ class Principal(Ui_MainWindow, QMainWindow):
         self.__limpar_componentes(componentes)
 
     def exibir_referencia_livro(self) -> None:
+        '''
+        Exibe a referencia de livro (html)
+        na tela listar
+        '''
         linha = self.tableWidget_lista_livros.currentRow()
         if linha >= 0:
             coluna = 19
@@ -351,6 +371,9 @@ class Principal(Ui_MainWindow, QMainWindow):
     # Métodos (Artigo)
 
     def salvar_artigo(self) -> None:
+        '''
+        Salva as informações da referência artigo
+        '''
         indice = self.tableWidget_lista_artigos.currentRow()
         artigo = Artigo()
         artigo.add_autor(Autor())
@@ -410,6 +433,9 @@ class Principal(Ui_MainWindow, QMainWindow):
                 self.limpar_artigo()
 
     def tabelar_artigos(self) -> None:
+        '''
+        Atualiza as infomações da tabela de artigos
+        '''
         cont_linhas = 0
         self.tableWidget_lista_artigos.clearContents()
         self.tableWidget_lista_artigos.setRowCount(len(self.controle_artigo.lista_artigos))
@@ -442,6 +468,10 @@ class Principal(Ui_MainWindow, QMainWindow):
             cont_linhas += 1
 
     def alterar_dados_artigo(self) -> None:
+        '''
+        Acessa as informações de um artigo cadastrado,
+        possibilando a edição de seus dados
+        '''
         indice = self.tableWidget_lista_artigos.currentRow()
         if indice >= 0:
             artigo = self.controle_artigo.consultar_artigo(indice)
@@ -491,6 +521,9 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.frame_lista_msg.show()
 
     def excluir_artigo(self) -> None:
+        '''
+        Exclui um artigo cadastrado
+        '''
         indice = self.tableWidget_lista_artigos.currentRow()
         if indice >= 0:
             msg = self.controle_artigo.excluir_artigo(indice)
@@ -506,6 +539,9 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.frame_lista_msg.show()
 
     def limpar_artigo(self) -> None:
+        '''
+        Limpa os campos do formulário artigo
+        '''
         componentes = [
             self.lineEdit_artigo_sobrenome_p_autor,
             self.lineEdit_artigo_nome_p_autor,
@@ -538,6 +574,10 @@ class Principal(Ui_MainWindow, QMainWindow):
         self.__limpar_componentes(componentes)
 
     def exibir_referencia_artigo(self) -> None:
+        '''
+        Exibe a referencia de artigo (html)
+        na tela listar
+        '''
         linha = self.tableWidget_lista_artigos.currentRow()
         if linha >= 0:
             coluna = 22
@@ -552,6 +592,9 @@ class Principal(Ui_MainWindow, QMainWindow):
     # Métodos (Tese)
 
     def salvar_tese(self) -> None:
+        '''
+        Salva as informações da referência tese
+        '''
         indice = self.tableWidget_lista_teses.currentRow()
         tese = Tese()
         tese.add_autor(Autor())
@@ -599,6 +642,9 @@ class Principal(Ui_MainWindow, QMainWindow):
                 self.limpar_tese()
 
     def tabelar_teses(self) -> None:
+        '''
+        Atualiza as infomações da tabela de teses
+        '''
         cont_linhas = 0
         self.tableWidget_lista_teses.clearContents()
         self.tableWidget_lista_teses.setRowCount(len(self.controle_tese.lista_teses))
@@ -624,6 +670,10 @@ class Principal(Ui_MainWindow, QMainWindow):
             cont_linhas += 1
 
     def alterar_dados_tese(self):
+        '''
+        Acessa as informações de uma tese cadastrada,
+        possibilando a edição de seus dados
+        '''
         indice = self.tableWidget_lista_teses.currentRow()
         if indice >= 0:
             tese = self.controle_tese.consultar_tese(indice)
@@ -667,6 +717,9 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.frame_lista_msg.show()
 
     def excluir_tese(self) -> None:
+        '''
+        Exclui uma tese cadastrada
+        '''
         indice = self.tableWidget_lista_teses.currentRow()
         if indice >= 0:
             msg = self.controle_tese.excluir_tese(indice)
@@ -682,6 +735,9 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.frame_lista_msg.show()
 
     def limpar_tese(self) -> None:
+        '''
+        Limpa os campos do formulário tese
+        '''
         componentes = [
             self.lineEdit_tese_sobrenome_p_autor,
             self.lineEdit_tese_nome_p_autor,
@@ -706,6 +762,10 @@ class Principal(Ui_MainWindow, QMainWindow):
         self.__limpar_componentes(componentes)
 
     def exibir_referencia_tese(self) -> None:
+        '''
+        Exibe a referencia de livro (html)
+        na tela listar
+        '''
         linha = self.tableWidget_lista_teses.currentRow()
         if linha >= 0:
             coluna = 16
@@ -720,6 +780,9 @@ class Principal(Ui_MainWindow, QMainWindow):
     # Método (Usuário)
 
     def cadastrar_usuario(self) -> None:
+        '''
+        Salva as informações de usuario
+        '''
         usuario = Usuario()
         usuario.nome  = self.lineEdit_cadastro_nome.text()
         usuario.sobrenome = self.lineEdit_cadastro_sobrenome.text()
@@ -739,6 +802,9 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.sair_sistema()
 
     def limpar_cadastrar(self):
+        '''
+        Limpa os campos do formulário usuário
+        '''
         componentes = [
             self.lineEdit_cadastro_nome,
             self.lineEdit_cadastro_sobrenome,
@@ -752,27 +818,52 @@ class Principal(Ui_MainWindow, QMainWindow):
     # Métodos Gerais
 
     def acessar_livro(self) -> None:
+        '''
+        Acessa o formulário "Livro"
+        '''
         self.stackedWidget_sistema.setCurrentWidget(self.page_sistema_livro)
 
     def acessar_artigo(self) -> None:
+        '''
+        Acessa o formulário "Artigo"
+        '''
         self.stackedWidget_sistema.setCurrentWidget(self.page_sistema_artigo)
 
     def acessar_tese(self) -> None:
+        '''
+        Acessa o formulário "Tese"
+        '''
         self.stackedWidget_sistema.setCurrentWidget(self.page_sistema_tese)
 
     def acessar_home(self) -> None:
+        '''
+        Acessa a página "Home"
+        '''
         self.stackedWidget_sistema.setCurrentWidget(self.page_sistema_home)
 
     def acessar_lista(self) -> None:
+        '''
+        Acessa a página "Lista"
+        '''
         self.stackedWidget_sistema.setCurrentWidget(self.page_sistema_lista)
 
     def acessar_cadastro(self) -> None:
+        '''
+        Acessa o formulário "Cadastro de Usuário"
+        '''
         self.stackedWidget_sistema.setCurrentWidget(self.page_sistama_cadastro)
 
     def sair_sistema(self) -> None:
+        '''
+        Sai do sistema, acessando a página de "Login"
+        '''
         self.stackedWidget_sistema.setCurrentWidget(self.page_sistema_login)
 
     def __limpar_componentes(self, componentes:list) -> None:
+        '''
+        Limpa os componentes da inteface gráfica
+        da lista fornecida
+        '''
         for componente in componentes:
             if isinstance(componente, QLineEdit):
                 componente.clear()
