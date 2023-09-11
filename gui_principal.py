@@ -1077,6 +1077,7 @@ class Ui_MainWindow(object):
         self.tableWidget_lista_livros = QtWidgets.QTableWidget(parent=self.tab_lista_livros)
         self.tableWidget_lista_livros.setGeometry(QtCore.QRect(0, 0, 641, 355))
         self.tableWidget_lista_livros.setStyleSheet("")
+        self.tableWidget_lista_livros.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
         self.tableWidget_lista_livros.setObjectName("tableWidget_lista_livros")
         self.tableWidget_lista_livros.setColumnCount(20)
         self.tableWidget_lista_livros.setRowCount(0)
@@ -1157,6 +1158,7 @@ class Ui_MainWindow(object):
         self.tab_lista_artigos.setObjectName("tab_lista_artigos")
         self.tableWidget_lista_artigos = QtWidgets.QTableWidget(parent=self.tab_lista_artigos)
         self.tableWidget_lista_artigos.setGeometry(QtCore.QRect(0, 0, 641, 355))
+        self.tableWidget_lista_artigos.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
         self.tableWidget_lista_artigos.setObjectName("tableWidget_lista_artigos")
         self.tableWidget_lista_artigos.setColumnCount(23)
         self.tableWidget_lista_artigos.setRowCount(0)
@@ -1243,6 +1245,7 @@ class Ui_MainWindow(object):
         self.tab_lista_teses.setObjectName("tab_lista_teses")
         self.tableWidget_lista_teses = QtWidgets.QTableWidget(parent=self.tab_lista_teses)
         self.tableWidget_lista_teses.setGeometry(QtCore.QRect(0, 0, 641, 355))
+        self.tableWidget_lista_teses.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
         self.tableWidget_lista_teses.setObjectName("tableWidget_lista_teses")
         self.tableWidget_lista_teses.setColumnCount(17)
         self.tableWidget_lista_teses.setRowCount(0)
@@ -1450,11 +1453,124 @@ class Ui_MainWindow(object):
         self.pushButton_cadastro_cadastrar.setObjectName("pushButton_cadastro_cadastrar")
         self.gridLayout_11.addWidget(self.pushButton_cadastro_cadastrar, 5, 3, 1, 1)
         self.stackedWidget_sistema.addWidget(self.page_sistama_cadastro)
+        self.page_sistema_usuarios = QtWidgets.QWidget()
+        self.page_sistema_usuarios.setObjectName("page_sistema_usuarios")
+        self.frame_usuarios_principal = QtWidgets.QFrame(parent=self.page_sistema_usuarios)
+        self.frame_usuarios_principal.setGeometry(QtCore.QRect(10, 10, 781, 581))
+        self.frame_usuarios_principal.setStyleSheet("")
+        self.frame_usuarios_principal.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.frame_usuarios_principal.setFrameShadow(QtWidgets.QFrame.Shadow.Plain)
+        self.frame_usuarios_principal.setObjectName("frame_usuarios_principal")
+        self.label_icon_usuarios = QtWidgets.QLabel(parent=self.frame_usuarios_principal)
+        self.label_icon_usuarios.setGeometry(QtCore.QRect(10, 0, 100, 100))
+        self.label_icon_usuarios.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.label_icon_usuarios.setObjectName("label_icon_usuarios")
+        self.frame_usuarios_msg = QtWidgets.QFrame(parent=self.frame_usuarios_principal)
+        self.frame_usuarios_msg.setGeometry(QtCore.QRect(120, 0, 651, 100))
+        self.frame_usuarios_msg.setStyleSheet("QLabel {\n"
+"    border-radius: 2px;\n"
+"}")
+        self.frame_usuarios_msg.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame_usuarios_msg.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.frame_usuarios_msg.setObjectName("frame_usuarios_msg")
+        self.label_usuarios_msg = QtWidgets.QLabel(parent=self.frame_usuarios_msg)
+        self.label_usuarios_msg.setGeometry(QtCore.QRect(15, 35, 570, 30))
+        self.label_usuarios_msg.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.label_usuarios_msg.setObjectName("label_usuarios_msg")
+        self.pushButton_usuarios_fechar_msg = QtWidgets.QPushButton(parent=self.frame_usuarios_msg)
+        self.pushButton_usuarios_fechar_msg.setGeometry(QtCore.QRect(600, 30, 40, 40))
+        self.pushButton_usuarios_fechar_msg.setStyleSheet("QPushButton{\n"
+"    background-color: rgb(255, 0, 0);\n"
+"    border-radius: 20px;\n"
+"    font-size: 14px;\n"
+"    color: white;\n"
+"}")
+        self.pushButton_usuarios_fechar_msg.setObjectName("pushButton_usuarios_fechar_msg")
+        self.frame_usuarios_fundo = QtWidgets.QFrame(parent=self.frame_usuarios_principal)
+        self.frame_usuarios_fundo.setGeometry(QtCore.QRect(10, 100, 761, 381))
+        self.frame_usuarios_fundo.setStyleSheet("")
+        self.frame_usuarios_fundo.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame_usuarios_fundo.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.frame_usuarios_fundo.setObjectName("frame_usuarios_fundo")
+        self.tabWidget_usuarios_dados = QtWidgets.QTabWidget(parent=self.frame_usuarios_fundo)
+        self.tabWidget_usuarios_dados.setGeometry(QtCore.QRect(0, 0, 761, 381))
+        self.tabWidget_usuarios_dados.setStyleSheet("#tabWidget_lista_dados {\n"
+"    background-color: rgb(28, 25, 72);\n"
+"}\n"
+"QTabBar::tab:!selected {\n"
+"    font-family: \'Candara\', Arial, sans-serif;\n"
+"    font-size: 11px;\n"
+"    background-color: rgb(51, 50, 128);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QTabBar::tab:selected {\n"
+"    font-family: \'Candara\', Arial, sans-serif;\n"
+"    font-size: 11px;\n"
+"    background-color: rgb(86, 89, 171);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QTabBar::tab-line {\n"
+"    font-family: \'Candara\', Arial, sans-serif;\n"
+"    font-size: 11px;\n"
+"    background-color: rgb(28, 25, 72);\n"
+"}\n"
+"QTableWidget {\n"
+"    background-color: rgb(255, 255, 255);\n"
+"    font-family: \'Times New Roman\', Times, serif;\n"
+"    font-size:14px;\n"
+"}\n"
+"    \n"
+"")
+        self.tabWidget_usuarios_dados.setObjectName("tabWidget_usuarios_dados")
+        self.tab_usuarios_dados = QtWidgets.QWidget()
+        self.tab_usuarios_dados.setObjectName("tab_usuarios_dados")
+        self.tableWidget_usuarios_usuarios = QtWidgets.QTableWidget(parent=self.tab_usuarios_dados)
+        self.tableWidget_usuarios_usuarios.setGeometry(QtCore.QRect(0, 0, 641, 355))
+        self.tableWidget_usuarios_usuarios.setStyleSheet("")
+        self.tableWidget_usuarios_usuarios.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
+        self.tableWidget_usuarios_usuarios.setObjectName("tableWidget_usuarios_usuarios")
+        self.tableWidget_usuarios_usuarios.setColumnCount(3)
+        self.tableWidget_usuarios_usuarios.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_usuarios_usuarios.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_usuarios_usuarios.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_usuarios_usuarios.setHorizontalHeaderItem(2, item)
+        self.frame_usuarios_botoes = QtWidgets.QFrame(parent=self.tab_usuarios_dados)
+        self.frame_usuarios_botoes.setGeometry(QtCore.QRect(640, 0, 121, 354))
+        self.frame_usuarios_botoes.setStyleSheet("QPushButton {\n"
+"    font-family: \'Candara\', Arial, sans-serif;\n"
+"    font-size: 14px;\n"
+"    background-color: rgb(51, 50, 128);\n"
+"    border-radius: 8px;\n"
+"    height: 23px;\n"
+"    color: rgb(255, 255, 255);\n"
+"}")
+        self.frame_usuarios_botoes.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame_usuarios_botoes.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.frame_usuarios_botoes.setObjectName("frame_usuarios_botoes")
+        self.gridLayout_12 = QtWidgets.QGridLayout(self.frame_usuarios_botoes)
+        self.gridLayout_12.setObjectName("gridLayout_12")
+        spacerItem10 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.gridLayout_12.addItem(spacerItem10, 7, 0, 1, 1)
+        self.pushButton_usuarios_excluir = QtWidgets.QPushButton(parent=self.frame_usuarios_botoes)
+        self.pushButton_usuarios_excluir.setObjectName("pushButton_usuarios_excluir")
+        self.gridLayout_12.addWidget(self.pushButton_usuarios_excluir, 3, 0, 1, 1)
+        self.pushButton_usuarios_alterar = QtWidgets.QPushButton(parent=self.frame_usuarios_botoes)
+        self.pushButton_usuarios_alterar.setObjectName("pushButton_usuarios_alterar")
+        self.gridLayout_12.addWidget(self.pushButton_usuarios_alterar, 2, 0, 1, 1)
+        self.pushButton_usuarios_cadastrar = QtWidgets.QPushButton(parent=self.frame_usuarios_botoes)
+        self.pushButton_usuarios_cadastrar.setObjectName("pushButton_usuarios_cadastrar")
+        self.gridLayout_12.addWidget(self.pushButton_usuarios_cadastrar, 4, 0, 1, 1)
+        self.tabWidget_usuarios_dados.addTab(self.tab_usuarios_dados, "")
+        self.stackedWidget_sistema.addWidget(self.page_sistema_usuarios)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
         self.stackedWidget_sistema.setCurrentIndex(0)
         self.tabWidget_lista_dados.setCurrentIndex(0)
+        self.tabWidget_usuarios_dados.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -1780,6 +1896,19 @@ class Ui_MainWindow(object):
         self.lineEdit_cadastro_sobrenome.setPlaceholderText(_translate("MainWindow", "Insira seu último Sobrenome"))
         self.label_cadastro_usuario.setText(_translate("MainWindow", "User:"))
         self.pushButton_cadastro_cadastrar.setText(_translate("MainWindow", "Cadastrar"))
+        self.label_icon_usuarios.setText(_translate("MainWindow", "Icone"))
+        self.label_usuarios_msg.setText(_translate("MainWindow", "Mensagem"))
+        self.pushButton_usuarios_fechar_msg.setText(_translate("MainWindow", "X"))
+        item = self.tableWidget_usuarios_usuarios.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "Nome"))
+        item = self.tableWidget_usuarios_usuarios.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Sobrenome"))
+        item = self.tableWidget_usuarios_usuarios.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "User"))
+        self.pushButton_usuarios_excluir.setText(_translate("MainWindow", "Excluir"))
+        self.pushButton_usuarios_alterar.setText(_translate("MainWindow", "Alterar"))
+        self.pushButton_usuarios_cadastrar.setText(_translate("MainWindow", "Cadastrar"))
+        self.tabWidget_usuarios_dados.setTabText(self.tabWidget_usuarios_dados.indexOf(self.tab_usuarios_dados), _translate("MainWindow", "Usuários"))
 
 
 if __name__ == "__main__":

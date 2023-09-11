@@ -19,6 +19,7 @@ class UsuarioControl:
     def consultar_usuario(self, user:str, senha:str) -> bool:
         '''
         Consulta um usuário na lista_usuario
+        Retorna um valor booleano
         '''
         acesso = False
         for usuario in self.__lista_usuarios:
@@ -26,6 +27,14 @@ class UsuarioControl:
                 acesso = True
                 break
         return acesso
+    
+    def acessar_usuario(self, indice:Usuario) -> Usuario:
+        '''
+        Acessa um usuário na lista_usuario
+        Retorna um Usuario
+        '''
+        usuario = self.__lista_usuarios[indice]
+        return usuario
 
     def alterar_usuario(self, indice:int, usuario:Usuario) -> str:
         '''
