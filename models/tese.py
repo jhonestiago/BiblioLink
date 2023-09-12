@@ -28,7 +28,7 @@ class Tese(ReferenciaBibliografica):
             if autor.sobrenome != '':
                 vetor_referencia[2 * i + 1] = f'{autor.sobrenome},'
                 vetor_referencia[2 * i + 2] = f' {autor.inicial}.'
-        vetor_referencia[5] = f' <b>{self.titulo_publicacao}<b>'
+        vetor_referencia[5] = f' <b>{self.titulo_publicacao}</b>'
         vetor_referencia[6] = f': {self.subtitulo_publicacao}' if self.subtitulo_publicacao != '' else ''
         vetor_referencia[7] = f'. Orientador: {self.orientador}' if self.orientador != '' else ''
         vetor_referencia[8] = f'. {self.ano_deposito}.'

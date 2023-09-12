@@ -69,6 +69,7 @@ class Principal(Ui_MainWindow, QMainWindow):
         #Componentes da tela: Livro
         self.frame_livro_msg.hide()
         self.label_icon_livro.setPixmap(QPixmap('img/icon_livro.png'))
+        self.label_livro_referencia.setWordWrap(True)
         self.pushButton_livro_salvar.clicked.connect(self.salvar_livro)
         self.pushButton_livro_lista.clicked.connect(self.acessar_lista)
         self.pushButton_livro_home.clicked.connect(self.acessar_home)
@@ -79,6 +80,7 @@ class Principal(Ui_MainWindow, QMainWindow):
         #Componentes da tela: Artigo
         self.frame_artigo_msg.hide()
         self.label_icon_artigo.setPixmap(QPixmap('img/icon_artigo.png'))
+        self.label_artigo_referencia.setWordWrap(True)
         self.pushButton_artigo_salvar.clicked.connect(self.salvar_artigo)
         self.pushButton_artigo_lista.clicked.connect(self.acessar_lista)
         self.pushButton_artigo_home.clicked.connect(self.acessar_home)
@@ -89,6 +91,7 @@ class Principal(Ui_MainWindow, QMainWindow):
         #Componentes da tela: Trabalhos Acadêmicos / Tese
         self.frame_tese_msg.hide()
         self.label_icon_tese.setPixmap(QPixmap('img/icon_tese.png'))
+        self.label_tese_referencia.setWordWrap(True)
         self.pushButton_tese_salvar.clicked.connect(self.salvar_tese)
         self.pushButton_tese_lista.clicked.connect(self.acessar_lista)
         self.pushButton_tese_home.clicked.connect(self.acessar_home)
@@ -99,6 +102,7 @@ class Principal(Ui_MainWindow, QMainWindow):
         #Componentes da tela: Lista(Geral)
         self.frame_lista_msg.hide()
         self.label_icon_lista.setPixmap(QPixmap('img/icon_lista.png'))
+        self.label_lista_referencia.setWordWrap(True)
         self.pushButton_lista_fechar_msg.clicked.connect(lambda: self.frame_lista_msg.hide())
         self.pushButton_lista_limpar_referencia.setIcon(QIcon('img/icon_limpar.png'))
         self.pushButton_lista_limpar_referencia.clicked.connect(lambda: self.label_lista_referencia.setText('Referência'))
@@ -371,7 +375,6 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.lineEdit_livro_site,
             self.lineEdit_livro_acesso
         ]
-        self.frame_livro_msg.hide()
         self.__limpar_componentes(componentes)
 
     def exibir_referencia_livro(self) -> None:
@@ -592,7 +595,6 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.lineEdit_artigo_site,
             self.lineEdit_artigo_acesso
         ]
-        self.frame_artigo_msg.hide()
         self.__limpar_componentes(componentes)
 
     def exibir_referencia_artigo(self) -> None:
@@ -780,7 +782,6 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.lineEdit_tese_site,
             self.lineEdit_tese_acesso
         ]
-        self.frame_tese_msg.hide()
         self.__limpar_componentes(componentes)
 
     def exibir_referencia_tese(self) -> None:
@@ -913,7 +914,6 @@ class Principal(Ui_MainWindow, QMainWindow):
             self.lineEdit_cadastro_senha_1,
             self.lineEdit_cadastro_senha_2,
         ]
-        self.frame_cadastro_msg.hide()
         self.__limpar_componentes(componentes)
 
     # Métodos Gerais
