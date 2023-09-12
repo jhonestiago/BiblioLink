@@ -36,7 +36,7 @@ class Principal(Ui_MainWindow, QMainWindow):
         self.controle_artigo = ArtigoControl()
         self.controle_tese = TeseControl()
         self.controle_usuario = UsuarioControl()
-        self.init_usuario()
+        self.init_usuarios()
         self.cor_sucesso = 'background-color: rgb(101, 184, 145)'
         self.cor_erro = 'background-color: rgb(204, 41, 54); color: rgb(255, 255, 255)'
 
@@ -128,26 +128,34 @@ class Principal(Ui_MainWindow, QMainWindow):
         self.frame_cadastro_msg.hide()
         self.label_icon_cadastro.setPixmap(QPixmap('img/icon_user'))
         self.pushButton_cadastro_cadastrar.clicked.connect(self.cadastrar_usuario)
+        self.pushButton_cadastro_sair.clicked.connect(self.sair_sistema)
         self.pushButton_cadastro_fechar_msg.clicked.connect(lambda: self.frame_cadastro_msg.hide())
 
         #Componentes da tela: Usuários
         self.frame_usuarios_msg.hide()
         self.label_icon_usuarios.setPixmap(QPixmap('img/icon_user'))
-        #self.pushButton_usuarios_alterar.clicked.connect()
-        #self.pushButton_usuarios_excluir.clicked.connect()
+        self.pushButton_usuarios_alterar.clicked.connect(self.alterar_dados_usuario)
+        self.pushButton_usuarios_excluir.clicked.connect(self.excluir_usuario)
         self.pushButton_usuarios_cadastrar.clicked.connect(self.acessar_cadastro)
+        self.pushButton_usuarios_sair.clicked.connect(self.sair_sistema)
         self.pushButton_usuarios_fechar_msg.clicked.connect(lambda: self.frame_usuarios_msg.hide())
 
-    def init_usuario(self) -> None:
+    def init_usuarios(self) -> None:
         '''
-        Inicializa o user "admin"
+        Inicializa o user "admin" e "controle"
         '''
-        usuario_sistema = Usuario()
-        usuario_sistema.nome = 'Sistema'
-        usuario_sistema.user = 'admin'
-        usuario_sistema.senha = '12345'
-        usuario_sistema.senha_conf = '12345'
-        self.controle_usuario.add_usuario(usuario_sistema)
+        usuario_1 = Usuario()
+        usuario_1.nome = 'ADMIN'
+        usuario_1.user = 'admin'
+        usuario_1.senha = '12345'
+        usuario_1.senha_conf = '12345'
+        self.controle_usuario.add_usuario(usuario_1)
+        usuario_2 = Usuario()
+        usuario_2.nome = 'CONTROLE'
+        usuario_2.user = 'controle'
+        usuario_2.senha = '54321'
+        usuario_2.senha_conf = '54321'
+        self.controle_usuario.add_usuario(usuario_2)
 
     def realizar_login(self) -> None:
         '''
@@ -157,11 +165,17 @@ class Principal(Ui_MainWindow, QMainWindow):
         user = self.lineEdit_login_usuario.text()
         senha = self.lineEdit_login_senha.text()
         if self.controle_usuario.consultar_usuario(user, senha):
-            self.lineEdit_login_usuario.setText('')
-            self.lineEdit_login_senha.setText('')
-            self.frame_login_msg.hide()
-            self.stackedWidget_sistema.setCurrentWidget(self.page_sistema_home)
-            print('Login realizado com sucesso')
+            if user == 'controle':
+                self.lineEdit_login_usuario.clear()
+                self.lineEdit_login_senha.clear()
+                self.frame_login_msg.hide()
+                self.acessar_usuarios()
+            else:
+                self.lineEdit_login_usuario.clear()
+                self.lineEdit_login_senha.clear()
+                self.frame_login_msg.hide()
+                self.stackedWidget_sistema.setCurrentWidget(self.page_sistema_home)
+                print('Login realizado com sucesso')
         else:
             self.label_login_msg.setText('Usuário ou senha incorretos!!!')
             self.label_login_msg.setStyleSheet(self.cor_erro)
@@ -317,10 +331,10 @@ class Principal(Ui_MainWindow, QMainWindow):
         indice = self.tableWidget_lista_livros.currentRow()
         if indice >= 0:
             msg = self.controle_livro.excluir_livro(indice)
-            self.tableWidget_lista_livros.removeRow(indice)
             self.label_lista_msg.setText(msg)
             self.label_lista_msg.setStyleSheet(self.cor_sucesso)
             self.frame_lista_msg.show()
+            self.tabelar_livros()
             self.tableWidget_lista_livros.clearSelection()
         else:
             msg = 'Por favor, selecione a linha do livro que deseja excluir'
@@ -535,10 +549,10 @@ class Principal(Ui_MainWindow, QMainWindow):
         indice = self.tableWidget_lista_artigos.currentRow()
         if indice >= 0:
             msg = self.controle_artigo.excluir_artigo(indice)
-            self.tableWidget_lista_artigos.removeRow(indice)
             self.label_lista_msg.setText(msg)
             self.label_lista_msg.setStyleSheet(self.cor_sucesso)
             self.frame_lista_msg.show()
+            self.tabelar_artigos()
             self.tableWidget_lista_artigos.clearSelection()
         else:
             msg = 'Por favor, selecione a linha do artigo que deseja excluir'
@@ -731,10 +745,10 @@ class Principal(Ui_MainWindow, QMainWindow):
         indice = self.tableWidget_lista_teses.currentRow()
         if indice >= 0:
             msg = self.controle_tese.excluir_tese(indice)
-            self.tableWidget_lista_teses.removeRow(indice)
             self.label_lista_msg.setText(msg)
             self.label_lista_msg.setStyleSheet(self.cor_sucesso)
             self.frame_lista_msg.show()
+            self.tabelar_teses()
             self.tableWidget_lista_teses.clearSelection()
         else:
             msg = 'Por favor, selecione a linha do trabalho que deseja excluir'
@@ -791,7 +805,7 @@ class Principal(Ui_MainWindow, QMainWindow):
         '''
         Salva as informações de usuario
         '''
-        indice = self.tableWidget_lista_teses.currentRow()
+        indice = self.tableWidget_usuarios_usuarios.currentRow()
         usuario = Usuario()
         usuario.nome  = self.lineEdit_cadastro_nome.text()
         usuario.sobrenome = self.lineEdit_cadastro_sobrenome.text()
@@ -805,22 +819,30 @@ class Principal(Ui_MainWindow, QMainWindow):
         else:
             if indice >= 0:
                 msg = self.controle_usuario.alterar_usuario(indice, usuario)
-                msg = self.controle_usuario.add_usuario(usuario)
                 self.label_cadastro_msg.setText(msg)
                 self.label_cadastro_msg.setStyleSheet(self.cor_sucesso)
                 self.frame_cadastro_msg.show()
-                self.limpar_cadastrar()
-                self.sair_sistema()
+                self.tabelar_usuarios()
                 self.tableWidget_usuarios_usuarios.clearSelection()
-            else:
-                msg = self.controle_usuario.add_usuario(usuario)
-                self.label_cadastro_msg.setText(msg)
-                self.label_cadastro_msg.setStyleSheet(self.cor_sucesso)
-                self.frame_cadastro_msg.show()
                 self.limpar_cadastrar()
-                self.sair_sistema()
+            else:
+                if self.controle_usuario.consultar_usuario(usuario.user, usuario.senha):
+                    msg = 'Nome de usuário já utilizado'
+                    self.label_cadastro_msg.setText(msg)
+                    self.label_cadastro_msg.setStyleSheet(self.cor_erro)
+                    self.frame_cadastro_msg.show()
+                else:
+                    msg = self.controle_usuario.add_usuario(usuario)
+                    self.label_cadastro_msg.setText(msg)
+                    self.label_cadastro_msg.setStyleSheet(self.cor_sucesso)
+                    self.frame_cadastro_msg.show()
+                    self.tabelar_usuarios()
+                    self.limpar_cadastrar()
 
     def tabelar_usuarios(self) -> None:
+        '''
+        Atualiza as infomações da tabela de usuarios
+        '''
         cont_linhas = 0
         self.tableWidget_usuarios_usuarios.clearContents()
         self.tableWidget_usuarios_usuarios.setRowCount(len(self.controle_usuario.lista_usuarios))
@@ -831,34 +853,54 @@ class Principal(Ui_MainWindow, QMainWindow):
             cont_linhas += 1
 
     def alterar_dados_usuario(self):
+        '''
+        Acessa as informações de um usuário cadastrado,
+        possibilando a edição de seus dados
+        '''
         indice = self.tableWidget_usuarios_usuarios.currentRow()
         if indice >= 0:
-            usuario = self.controle_usuario.acessar_usuario(indice)
-            self.lineEdit_cadastro_nome.setText(usuario.nome)
-            self.lineEdit_cadastro_sobrenome.setText(usuario.sobrenome)
-            self.lineEdit_cadastro_usuario.setText(usuario.user)
-            self.lineEdit_cadastro_senha_1.setText(usuario.senha)
-            self.lineEdit_cadastro_senha_2.setText(usuario.senha_conf)
+            if indice > 1:
+                usuario = self.controle_usuario.acessar_usuario(indice)
+                self.lineEdit_cadastro_nome.setText(usuario.nome)
+                self.lineEdit_cadastro_sobrenome.setText(usuario.sobrenome)
+                self.lineEdit_cadastro_usuario.setText(usuario.user)
+                self.lineEdit_cadastro_senha_1.setText(usuario.senha)
+                self.lineEdit_cadastro_senha_2.setText(usuario.senha_conf)
+                self.acessar_cadastro()
+            else:
+                msg = 'Não é possível alterar o usuário'
+                self.label_usuarios_msg.setText(msg)
+                self.label_usuarios_msg.setStyleSheet(self.cor_erro)
+                self.frame_usuarios_msg.show()
         else:
             msg = 'Por favor, selecione o Usuário que deseja alterar'
             self.label_usuarios_msg.setText(msg)
             self.label_usuarios_msg.setStyleSheet(self.cor_erro)
-            self.label_usuarios_msg.show()
+            self.frame_usuarios_msg.show()
 
     def excluir_usuario(self) -> None:
+        '''
+        Exclui um usuário cadastrado
+        '''
         indice = self.tableWidget_usuarios_usuarios.currentRow()
         if indice >= 0:
-            msg = self.controle_usuario.excluir_usuario(indice)
-            self.tableWidget_usuarios_usuarios.removeRow(indice)
-            self.label_usuarios_msg.setText(msg)
-            self.label_usuarios_msg.setStyleSheet(self.cor_sucesso)
-            self.label_usuarios_msg.show()
-            self.tableWidget_usuarios_usuarios.clearSelection()
+            if indice > 1:
+                msg = self.controle_usuario.excluir_usuario(indice)
+                self.label_usuarios_msg.setText(msg)
+                self.label_usuarios_msg.setStyleSheet(self.cor_sucesso)
+                self.frame_usuarios_msg.show()
+                self.tableWidget_usuarios_usuarios.clearSelection()
+                self.tabelar_usuarios()
+            else:
+                msg = 'Não é possível excluir o usuário'
+                self.label_usuarios_msg.setText(msg)
+                self.label_usuarios_msg.setStyleSheet(self.cor_erro)
+                self.frame_usuarios_msg.show()
         else:
             msg = 'Por favor, selecione o Usuário que deseja excluir'
             self.label_usuarios_msg.setText(msg)
             self.label_usuarios_msg.setStyleSheet(self.cor_erro)
-            self.label_usuarios_msg.show()
+            self.frame_usuarios_msg.show()
 
     def limpar_cadastrar(self) -> None:
         '''
@@ -911,6 +953,12 @@ class Principal(Ui_MainWindow, QMainWindow):
         Acessa o formulário "Cadastro de Usuário"
         '''
         self.stackedWidget_sistema.setCurrentWidget(self.page_sistama_cadastro)
+
+    def acessar_usuarios(self) -> None:
+        '''
+        Acessa a página "Usuários"
+        '''
+        self.stackedWidget_sistema.setCurrentWidget(self.page_sistema_usuarios)
 
     def sair_sistema(self) -> None:
         '''

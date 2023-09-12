@@ -27,8 +27,8 @@ class UsuarioControl:
                 acesso = True
                 break
         return acesso
-    
-    def acessar_usuario(self, indice:Usuario) -> Usuario:
+
+    def acessar_usuario(self, indice:int) -> Usuario:
         '''
         Acessa um usuário na lista_usuario
         Retorna um Usuario
@@ -49,7 +49,7 @@ class UsuarioControl:
         '''
         del self.__lista_usuarios[indice]
         return 'Usuário excluído com sucesso'
-
+    
     @property
     def lista_usuarios(self) -> List[Usuario]:
         '''

@@ -3209,7 +3209,7 @@ QTableWidget {
         <property name="geometry">
          <rect>
           <x>340</x>
-          <y>110</y>
+          <y>90</y>
           <width>100</width>
           <height>100</height>
          </rect>
@@ -3228,7 +3228,7 @@ QTableWidget {
         <property name="geometry">
          <rect>
           <x>60</x>
-          <y>430</y>
+          <y>450</y>
           <width>651</width>
           <height>100</height>
          </rect>
@@ -3286,9 +3286,9 @@ QTableWidget {
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>220</y>
+          <y>200</y>
           <width>761</width>
-          <height>200</height>
+          <height>231</height>
          </rect>
         </property>
         <property name="styleSheet">
@@ -3324,7 +3324,7 @@ QPushButton {
            <x>10</x>
            <y>10</y>
            <width>741</width>
-           <height>181</height>
+           <height>211</height>
           </rect>
          </property>
          <property name="frameShape">
@@ -3444,6 +3444,13 @@ QPushButton {
             </property>
            </widget>
           </item>
+          <item row="5" column="3">
+           <widget class="QPushButton" name="pushButton_cadastro_cadastrar">
+            <property name="text">
+             <string>Cadastrar</string>
+            </property>
+           </widget>
+          </item>
           <item row="2" column="1">
            <widget class="QLabel" name="label_cadastro_usuario">
             <property name="text">
@@ -3451,10 +3458,10 @@ QPushButton {
             </property>
            </widget>
           </item>
-          <item row="5" column="3">
-           <widget class="QPushButton" name="pushButton_cadastro_cadastrar">
+          <item row="6" column="3">
+           <widget class="QPushButton" name="pushButton_cadastro_sair">
             <property name="text">
-             <string>Cadastrar</string>
+             <string>Sair</string>
             </property>
            </widget>
           </item>
@@ -3707,6 +3714,13 @@ QTableWidget {
              <widget class="QPushButton" name="pushButton_usuarios_cadastrar">
               <property name="text">
                <string>Cadastrar</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="0">
+             <widget class="QPushButton" name="pushButton_usuarios_sair">
+              <property name="text">
+               <string>Sair</string>
               </property>
              </widget>
             </item>
