@@ -4,7 +4,7 @@ BiblioLink é uma aplicação para gerenciar e formatar referências bibliográf
 
 ## Instalação
 
-Atualmente, o projeto BiblioLink está em desenvolvimento e não está pronto para uso ou implantação.
+Atualmente, o projeto BiblioLink está em desenvolvimento e não está pronto para a implantação.
 
 ## Uso
 
@@ -26,10 +26,6 @@ BiblioLink oferece uma interface simples para:
 - Possibilidade de pesquisa rápida para encontrar referências específicas.
 - Personalização das configurações para se adequar às suas necessidades de formatação.
 - Suporte para exportar referências em diferentes formatos, como PDF ou planilhas.
-
-## Contribuindo
-
-Sinta-se à vontade para contribuir com o BiblioLink!
 
 ## Licença
 
